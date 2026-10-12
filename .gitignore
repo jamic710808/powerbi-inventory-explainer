@@ -17,7 +17,7 @@ film/clauses.txt
 
 # 與 docs/ 重複的發佈檔（Vercel 部署資料夾含專案連結）
 powerbi-inventory-explainer/
-explainer.html
-poster.jpg
+/explainer.html
+/poster.jpg
 .vercel/
 __pycache__/
