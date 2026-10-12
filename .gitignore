@@ -1,0 +1,23 @@
+# 原始 Desktop 截圖：含未打碼的報表品牌圖標，不公開（assets/ 內是已打碼版本）
+shots/
+
+# 可重新產生的中間檔／大檔
+film/audio/
+film/vo/
+film/vo44/
+film/mix.wav
+film/mix_raw.wav
+film/music_only.wav
+film/out_*.mp4
+film/film_web.mp4
+film/seg_*.mp4
+film/*.log
+film/qa*/
+film/clauses.txt
+
+# 與 docs/ 重複的發佈檔（Vercel 部署資料夾含專案連結）
+powerbi-inventory-explainer/
+explainer.html
+poster.jpg
+.vercel/
+__pycache__/

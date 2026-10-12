@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Power BI 庫存分析報告 · 圖解導覽</title>
+<meta name="description" content="零基礎看懂一份 Power BI 庫存分析報告：8 張頁面回答 6 個庫存管理問題。先看圖，再點、再放大。">
+<style>
+:root{--bg:#f2f5fb;--card:#fff;--ink:#0f2547;--mut:#5b6f93;--teal:#2757c9;--teal2:#3b82f6;--mint:#2fb59a;--orange:#e9792f;--line:#d6dfee;--r:18px;--sh:0 10px 30px rgba(15,37,71,.10)}
+:root[data-theme=dark]{--bg:#0b1630;--card:#12254a;--ink:#e6eeff;--mut:#9fb4dc;--line:#26406e;--sh:0 10px 30px rgba(0,0,0,.4)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"Microsoft JhengHei","Noto Sans TC","PingFang TC",sans-serif;line-height:1.6}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:6px;align-items:center;overflow-x:auto;padding:10px 20px;white-space:nowrap}
+nav b{margin-right:10px;color:var(--teal)}
+nav a{padding:6px 12px;border-radius:20px;text-decoration:none;font-size:14px;color:var(--mut)}
+nav a:hover,nav a.on{background:var(--teal);color:#fff}
+#theme{margin-left:auto;border:1px solid var(--line);background:var(--card);border-radius:20px;padding:5px 12px;font-size:13px}
+section{padding:70px 0 10px}
+h2{font-size:34px;letter-spacing:.02em;margin-bottom:6px}
+h2 small{display:inline-block;font-size:15px;font-weight:700;color:#fff;background:var(--orange);padding:2px 12px;border-radius:14px;margin-right:12px;vertical-align:middle}
+.lead{color:var(--mut);font-size:18px;margin-bottom:26px}
+.card{background:var(--card);border-radius:var(--r);box-shadow:var(--sh);border:1px solid var(--line)}
+.hero{padding:44px 0 20px;display:grid;grid-template-columns:1fr 1.15fr;gap:34px;align-items:center}
+.hero h1{font-size:clamp(34px,5vw,56px);line-height:1.15}
+.hero h1 span{color:var(--teal2)}
+.hero p{font-size:19px;color:var(--mut);margin:16px 0 22px}
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.flow .n{padding:10px 16px;border-radius:14px;background:var(--card);border:1px solid var(--line);font-weight:800;box-shadow:var(--sh)}
+.flow i{font-style:normal;color:var(--orange);font-size:22px}
+.shot{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:var(--sh)}
+.shot img{display:block;width:100%;height:auto}
+.zoomable{cursor:zoom-in}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+.kpi{padding:16px 18px}
+.kpi b{display:block;font-size:30px;color:var(--teal);font-variant-numeric:tabular-nums}
+.kpi span{font-size:14px;color:var(--mut)}
+/* video */
+.vid{padding:10px}
+.vid video{display:block;width:100%;border-radius:12px;background:#000;aspect-ratio:16/9}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:20px;padding:5px 12px;font-size:14px;font-weight:700}
+.chip:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+.chip small{color:var(--orange);margin-right:4px;font-variant-numeric:tabular-nums}
+.chip:hover small{color:#fff}
+/* layers */
+.layers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.layer{padding:22px;text-align:left;border:2px solid var(--line);background:var(--card);border-radius:var(--r);transition:.2s;position:relative}
+.layer:hover{transform:translateY(-3px)}
+.layer[aria-pressed=true]{border-color:var(--orange);box-shadow:var(--sh)}
+.layer .ic{font-size:44px}
+.layer h3{font-size:24px;margin:6px 0 2px}
+.layer p{color:var(--mut);font-size:15px}
+.layer .big{font-size:40px;font-weight:800;color:var(--teal2)}
+.layer:not(:last-child)::after{content:"➜";position:absolute;right:-20px;top:46%;color:var(--orange);font-size:24px;z-index:2}
+#layerInfo{margin-top:16px;padding:22px 26px;font-size:17px;min-height:96px}
+/* six questions */
+.qs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.q{padding:12px;text-align:left;border:2px solid var(--line);background:var(--card);border-radius:var(--r);transition:.2s}
+.q:hover{transform:translateY(-3px);border-color:var(--orange)}
+.q .th{border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.q .th img{display:block;width:100%}
+.q h3{font-size:22px;margin:10px 0 0;display:flex;gap:8px;align-items:center}
+.q h3 i{font-style:normal;width:32px;height:32px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;font-size:17px;flex:none}
+.q p{color:var(--orange);font-weight:800;font-size:19px}
+.q span{color:var(--mut);font-size:14px}
+/* journey */
+.journey{display:grid;grid-template-columns:260px 1fr;gap:20px}
+.steps{display:flex;flex-direction:column;gap:8px}
+.step{display:flex;gap:12px;align-items:center;padding:14px 16px;border-radius:14px;border:2px solid var(--line);background:var(--card);text-align:left}
+.step .no{width:34px;height:34px;border-radius:50%;background:var(--line);display:grid;place-items:center;font-weight:800;flex:none}
+.step[aria-selected=true]{border-color:var(--orange)}
+.step[aria-selected=true] .no{background:var(--orange);color:#fff}
+.stage{padding:24px;min-height:360px}
+.stage h3{font-size:24px;margin-bottom:6px}
+.stage p{color:var(--mut);margin-bottom:14px}
+table.t{border-collapse:collapse;width:100%;font-size:13.5px;font-variant-numeric:tabular-nums}
+table.t th{background:var(--teal);color:#fff;padding:7px 10px;text-align:left;font-weight:700;white-space:nowrap}
+table.t td{padding:6px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+.scroll{overflow-x:auto}
+code,pre{font-family:Consolas,"Cascadia Mono","Microsoft JhengHei",monospace}
+pre{background:#0b1b33;color:#cfe0f9;padding:16px 18px;border-radius:12px;font-size:14px;overflow-x:auto;line-height:1.55}
+pre .k{color:#ffd27a}pre .c{color:#7fe0c6}pre .s{color:#ff9d6b}
+.btn{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);background:var(--card);padding:8px 14px;border-radius:12px;font-weight:700}
+.btn.pri{background:var(--teal);color:#fff;border-color:var(--teal)}
+.btn:disabled{opacity:.45;cursor:default}
+/* star schema */
+.star{display:grid;grid-template-columns:1.6fr 1fr;gap:18px}
+.svgbox{padding:14px}
+.svgbox svg{width:100%;height:auto;display:block}
+.node{cursor:pointer}
+.node rect{transition:.15s}
+.node:hover rect,.node.on rect{stroke:var(--orange);stroke-width:4}
+.node text{pointer-events:none;font-weight:800;font-size:17px}
+.edge{stroke:var(--teal2);stroke-width:1.5;fill:none;opacity:.22;transition:.2s}
+.edge.off{stroke-dasharray:6 5}
+.edge.hi{opacity:.95;stroke:var(--orange);stroke-width:3}
+#nodeInfo{padding:22px}
+#nodeInfo h3{font-size:24px}
+.pill{display:inline-block;padding:3px 10px;border-radius:12px;background:var(--bg);border:1px solid var(--line);font-size:13px;margin:3px 4px 3px 0}
+.tag{font-size:13px;font-weight:800;padding:2px 10px;border-radius:10px;color:#fff}
+.tag.f{background:var(--orange)}.tag.d{background:var(--mint)}
+/* report tabs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tab{padding:9px 14px;border-radius:20px;border:2px solid var(--line);background:var(--card);font-weight:700;font-size:15px}
+.tab[aria-selected=true]{background:var(--teal);color:#fff;border-color:var(--teal)}
+.rep{display:grid;grid-template-columns:1.8fr 1fr;gap:18px}
+.hs{position:absolute;border:3px solid transparent;border-radius:8px;background:transparent;transition:.15s}
+.hs:hover,.hs.on{border-color:var(--orange);background:rgba(233,121,47,.14)}
+.hs::after{content:"";position:absolute;right:-8px;top:-8px;width:18px;height:18px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 0 rgba(233,121,47,.6);animation:pulse 2s infinite}
+.hs.on::after{animation:none}
+@keyframes pulse{70%{box-shadow:0 0 0 12px rgba(233,121,47,0)}100%{box-shadow:0 0 0 0 rgba(233,121,47,0)}}
+.side{padding:22px}
+.side h3{font-size:22px}
+.side .qq{font-size:20px;font-weight:800;color:var(--teal);margin:6px 0 12px}
+.hint{font-size:14px;color:var(--mut);margin-top:10px}
+#hsInfo{margin-top:14px;padding:14px 16px;border-radius:12px;background:var(--bg);border:1px dashed var(--orange);font-size:15px;min-height:70px}
+.hotbtn{margin-top:10px}
+/* flip cards */
+.flips{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.flip{perspective:900px;height:270px;border:0;background:none;text-align:left}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.flip[aria-pressed=true] .in{transform:rotateY(180deg)}
+.flip .f,.flip .b{position:absolute;inset:0;backface-visibility:hidden;padding:20px;border-radius:var(--r);border:1px solid var(--line);box-shadow:var(--sh);overflow:auto}
+.flip .f{background:var(--card)}
+.flip .b{background:#0b1b33;color:#cfe0f9;transform:rotateY(180deg);font-size:13px}
+.flip h3{font-size:26px;color:var(--teal)}
+.flip .f p{color:var(--mut);margin-top:6px}
+.flip .f .tapme{position:absolute;right:16px;bottom:12px;font-size:13px;color:var(--orange);font-weight:800}
+/* chart guide */
+.guide{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gc{padding:12px;text-align:center}
+.gc .im{border-radius:10px;background-color:#eef3fb;background-repeat:no-repeat;margin-bottom:10px;border:1px solid var(--line)}
+.gc b{font-size:22px;color:var(--teal)}
+.gc p{font-size:14px;color:var(--mut)}
+/* measure bars */
+.mbars{padding:22px}
+.mrow{display:grid;grid-template-columns:150px 1fr 40px;gap:10px;align-items:center;margin:7px 0;font-size:15px}
+.mbar{height:20px;border-radius:10px;background:var(--bg);overflow:hidden}
+.mbar i{display:block;height:100%;border-radius:10px;background:linear-gradient(90deg,var(--mint),var(--teal2));width:0;transition:width 1s}
+.mrow.disp .mbar i{background:linear-gradient(90deg,#f6b47c,var(--orange))}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:8px 0;padding:4px 18px}
+summary{cursor:pointer;font-weight:800;padding:12px 0;font-size:18px}
+details p{color:var(--mut);padding:0 0 14px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.box{padding:22px}
+.box h3{font-size:22px;margin-bottom:8px}
+.box.fact{border-top:6px solid var(--mint)}.box.warn{border-top:6px solid var(--orange)}
+.box li{margin:8px 0 8px 20px}
+.cmd{display:flex;gap:10px;align-items:stretch;margin:10px 0}
+.cmd pre{flex:1;margin:0}
+#lb{position:fixed;inset:0;background:rgba(5,12,28,.88);z-index:100;display:none;overflow:auto;cursor:zoom-out;padding:20px}
+#lb.on{display:block}
+#lb img{display:block;margin:0 auto;max-width:none;width:min(2400px,220vw);border-radius:8px;background:#fff}
+#lb .x{position:fixed;right:18px;top:12px;font-size:34px;color:#fff;background:none;border:0}
+footer{padding:50px 0 70px;color:var(--mut);font-size:14px}
+@media(max-width:900px){.hero,.star,.rep,.journey{grid-template-columns:1fr}.layers,.flips,.two,.qs{grid-template-columns:1fr}.guide{grid-template-columns:repeat(2,1fr)}.kpis{grid-template-columns:repeat(2,1fr)}.layer:not(:last-child)::after{display:none}.steps{flex-direction:row;overflow-x:auto}.step{flex:none}h2{font-size:27px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>庫存 · Power BI</b>
+<a href="#top">全貌</a><a href="#film">影片</a><a href="#layers">三層樓</a><a href="#qs">六個問題</a><a href="#journey">資料旅程</a><a href="#star">星狀模型</a><a href="#pages">八個頁面</a><a href="#defs">口徑</a><a href="#charts">選圖</a><a href="#measures">度量值</a><a href="#notes">注意事項</a><a href="#run">自己打開</a>
+<button id="theme" aria-label="切換深淺色">🌓 深／淺</button></div></nav>
+
+<main class="wrap" id="top">
+<div class="hero">
+ <div>
+  <h1>把庫存數字，<br>變成<span>看得懂的判斷</span></h1>
+  <p>這是一份庫存管理的 Power BI 分析報告。<b>你不需要先懂 Power BI，也不需要先懂庫存</b>——先看圖，再點、再放大，就能知道它怎麼運作。</p>
+  <div class="flow"><span class="n">📄 19 個 CSV</span><i>→</i><span class="n">🧩 資料模型</span><i>→</i><span class="n">📊 8 個頁面</span></div>
+  <div class="kpis" style="grid-template-columns:repeat(2,1fr)">
+   <div class="kpi card"><b data-n="78.5" data-d="1">0</b><span>萬元 · 期末在庫金額</span></div>
+   <div class="kpi card"><b data-n="22.5" data-d="1">0</b><span>天 · 在庫週轉天數</span></div>
+   <div class="kpi card"><b data-n="8.0" data-d="1">0</b><span>% · 需求缺貨率</span></div>
+   <div class="kpi card"><b data-n="93.5" data-d="1">0</b><span>% · 盤點記錄準確率</span></div>
+  </div>
+ </div>
+ <figure class="shot zoomable" data-key="p0"><img data-k="p0_s" alt="報告首頁：Power BI 庫存分析報告標題、進入報告按鈕、四個 KPI（在庫金額 78.5 萬元、週轉 22.5 天、缺貨率 8%、盤點準確率 93.5%）"></figure>
+</div>
+<p class="hint">四個數字取自報告首頁，統計範圍是整份資料（2024-09-01 至 2026-08-31）。點圖可放大。資料為示範（模擬）資料。</p>
+
+<!-- FILM -->
+<section id="film">
+ <h2><small>▶</small>影片　5 分鐘看完整份報告</h2>
+ <p class="lead">旁白＋字幕。沒時間往下捲的話，先看這支。點下面的章節可以直接跳。</p>
+ <div class="card vid"><video id="vid" controls preload="metadata" playsinline poster="poster.jpg"><source src="film.mp4" type="video/mp4">你的瀏覽器不支援影片播放。</video></div>
+ <div class="chips" id="chips"></div>
+ <p class="hint">旁白：Gemini TTS（Kore）；配樂為程式合成的柔和鋼琴與音墊。旁白發音若有誤讀，以畫面字幕為準。</p>
+</section>
+
+<!-- LAYERS -->
+<section id="layers">
+ <h2><small>01</small>全貌：三層樓</h2>
+ <p class="lead">像蓋房子：地基是資料，中間是「規則」，最上面才是你看到的畫面。點每一層。</p>
+ <div class="layers" role="group" aria-label="三層架構">
+  <button class="layer" aria-pressed="true" data-i="0"><div class="ic">📄</div><h3>資料層</h3><div class="big">19</div><p>個 CSV：7 張「發生了什麼」＋12 張對照／設定表</p></button>
+  <button class="layer" aria-pressed="false" data-i="1"><div class="ic">🧩</div><h3>模型層</h3><div class="big">93</div><p>個 DAX 度量值＋43 條業務關聯</p></button>
+  <button class="layer" aria-pressed="false" data-i="2"><div class="ic">📊</div><h3>報告層</h3><div class="big">8</div><p>個可看的頁面（首頁＋總覽＋6 專題）</p></button>
+ </div>
+ <div class="card" id="layerInfo"></div>
+</section>
+
+<!-- QUESTIONS -->
+<section id="qs">
+ <h2><small>02</small>庫存管理的六個問題</h2>
+ <p class="lead">報告的每張專題頁，只回答一個問題。點卡片，直接跳到那一頁。</p>
+ <div class="qs" id="qgrid"></div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey">
+ <h2><small>03</small>一筆庫存數字的旅程</h2>
+ <p class="lead">從 CSV 裡的一行，到你看到的一張卡片。左邊切換步驟。</p>
+ <div class="journey">
+  <div class="steps" role="tablist" aria-label="資料旅程步驟" id="steps"></div>
+  <div class="card stage" id="stage" role="tabpanel"></div>
+ </div>
+</section>
+
+<!-- STAR -->
+<section id="star">
+ <h2><small>04</small>星狀模型：誰跟誰連在一起</h2>
+ <p class="lead">橘色＝「事實表」（每天發生的事）。綠色＝「維度表」（誰、什麼、何時）。<b>點任何一張表</b>，會亮起它連到的線。</p>
+ <div class="star">
+  <div class="card svgbox"><svg viewBox="0 0 900 720" id="starSvg" role="img" aria-label="星狀模型示意圖：8 張事實與設定表在中間，10 張維度與輔助表在左右兩側"></svg></div>
+  <div class="card" id="nodeInfo"></div>
+ </div>
+ <p class="hint">連線依 relationships.tmdl 的實際關聯繪製（實線 40 條為啟用中，虛線 3 條為停用的備用關聯）；另有 18 條是 Power BI 自動為日期欄建立的隱藏日期表關聯，這裡省略。</p>
+</section>
+
+<!-- PAGES -->
+<section id="pages">
+ <h2><small>05</small>八個頁面，各回答一個問題</h2>
+ <p class="lead">切換頁籤；橘色圓點是「可以點的重點」。點圖可放大成全解析度。</p>
+ <div class="tabs" role="tablist" id="ptabs"></div>
+ <div class="rep">
+  <div><div class="shot" id="pshot"><img id="pimg" class="zoomable" alt=""></div>
+   <div class="hint">▲ 圖上的橘點可以點；整張圖點一下可放大。</div></div>
+  <div class="card side" id="pside"></div>
+ </div>
+</section>
+
+<!-- DEFS -->
+<section id="defs">
+ <h2><small>06</small>口徑：這個數字怎麼算的</h2>
+ <p class="lead">同一個詞，換間公司算法可能不同。這份報告把算法寫成<b>可檢查的公式</b>。點卡片翻面看 DAX。</p>
+ <div class="flips" id="flips"></div>
+</section>
+
+<!-- CHARTS -->
+<section id="charts">
+ <h2><small>07</small>圖表怎麼選</h2>
+ <p class="lead">每個問題配一種圖。下面是報告裡真正用到的樣子（截自報告）。</p>
+ <div class="guide" id="guide"></div>
+</section>
+
+<!-- MEASURES -->
+<section id="measures">
+ <h2><small>08</small>93 個度量值住在哪</h2>
+ <p class="lead">度量值按「顯示資料夾」整理。長條＝個數。橘色是「給畫面用」的輔助度量值（HTML 卡片、動態文字）。</p>
+ <div class="card mbars" id="mbars"></div>
+ <p class="hint">事實：統計自模型的度量值與 displayFolder（共 93 個，2026-10-09）。觀察（推測）：「展示輔助」占 45%（42／93），且報表有 31 個 HTML 內容視覺，代表這份報告用 DAX 直接產生 HTML 卡片與文字，讓版面更美觀、文字會隨篩選改寫。</p>
+</section>
+
+<!-- GLOSSARY -->
+<section id="glossary">
+ <h2><small>09</small>小字典</h2>
+ <details><summary>什麼是「度量值（Measure）」？</summary><p>一條會隨你點的篩選器重新計算的公式。例如「期末在庫金額」：你選某個倉庫，它就只算那個倉庫；再選某個品類，就只算那個倉庫的那個品類。</p></details>
+ <details><summary>什麼是 DAX？</summary><p>Power BI 寫公式的語言，像 Excel 函數的進階版。CALCULATE、SUM、DIVIDE 是最常見的三個。</p></details>
+ <details><summary>事實表 vs 維度表？</summary><p>事實表記錄「發生了什麼」（一次出庫、一天的庫存快照、一筆採購），列數多；維度表是「對照資料」（商品、倉庫、日期），列數少，拿來分組、篩選。</p></details>
+ <details><summary>週轉天數和週轉次數差在哪？</summary><p>同一件事的兩種說法：週轉天數＝平均庫存大約要幾天賣完一輪；週轉次數＝這段期間轉了幾輪。本報告兩者互為倒數關係（22.8 天 ≈ 26.71 次，期間約 608 天）。</p></details>
+ <details><summary>什麼是 ABC 分類？</summary><p>把商品依「銷售出庫成本」由大到小排序，再依累計占比分成 A、B、C 三類，幫你分辨哪些是主力商品。報告在「商品效率清單」用它；切點以度量值「ABC分類」為準。</p></details>
+ <details><summary>在途、逾期在途、安全庫存是什麼？</summary><p>在途＝已下單、還沒到倉；逾期在途＝已超過承諾到貨日還沒到；安全庫存＝為了不缺貨預留的緩衝量。補貨工作表把它們和「可用庫存」並排，讓你判斷要不要補。</p></details>
+ <details><summary>庫齡和臨期有什麼不同？</summary><p>庫齡＝這批貨進倉多久（天）；臨期＝離「有效截止日」還剩幾天。一批貨可以庫齡很長但沒有效期限，也可以很新卻快到期，所以報告把它們分開看，再用「去重」避免重複計算。</p></details>
+ <details><summary>.pbip 跟 .pbix 差在哪？</summary><p>.pbix 是單一壓縮檔；.pbip 把報告拆成純文字資料夾（.Report 放頁面與圖表、.SemanticModel 放模型與 DAX），適合版本控制與讓 AI 讀懂、修改。</p></details>
+</section>
+
+<!-- NOTES -->
+<section id="notes">
+ <h2><small>10</small>看報告前，先知道這些</h2>
+ <div class="two">
+  <div class="card box fact"><h3>✅ 已確認事實</h3><ul>
+   <li><b>首頁和其他頁的數字不同，是期間不同，不是算錯。</b>首頁算整份資料到 2026-08-31（在庫金額 78.5 萬）；其他頁預設期間是 2024/9/1–2026/5/1（58.9 萬）。我用不加篩選的查詢驗證過首頁四個數字。</li>
+   <li>風險金額（臨期、退市、長庫齡）<b>已去重、不可相加</b>：同一批貨可能同時符合多種風險（頁面口徑註記）。</li>
+   <li>盤點準確率<b>只反映已盤記錄</b>，不等於全倉每天的準確率（圖表標題寫明）。</li>
+   <li>資料規模：80 項商品、3 個倉庫、6 個品牌、6 個品類、401 個客戶；日快照 175,200 列＝80 商品 × 3 倉 × 730 天。</li>
+   <li>資料為示範（模擬）資料：商品表的成本欄位名稱就叫「模擬標準單位成本」。</li>
+  </ul></div>
+  <div class="card box warn"><h3>⚠️ 觀察／待確認</h3><ul>
+   <li><b>盤點準確率有 0.1 個百分點的顯示差異：</b>卡片顯示 93.6%，用同樣期間直接查度量值得 0.9355（四捨五入應為 93.5%），同一頁底部「庫存管理要點」文字也寫 93.5%。原因未查，<b>推測</b>是卡片的取整或顯示方式不同。</li>
+   <li>「凍結庫存金額」期末為 0 元；整段資料的凍結數量日快照加總只有 450。<b>推測</b>示範資料沒有著重這個情境，未向作者確認。</li>
+   <li>模型有 18 條 Power BI 自動日期表關聯（共 19 張隱藏日期表）。已經有「維度_日期」時，這些是可以考慮關閉的冗餘，動手前請先確認沒有欄位依賴它們。</li>
+   <li>模型語系設定為 en-US，內容是繁體中文；通常不影響使用，但排序與格式化可能和預期不同。</li>
+   <li>3 條停用的備用關聯（庫存流水的原始訂單鍵；採購訂單的承諾到貨日、最終收貨日）。<b>推測</b>是用 USERELATIONSHIP 在特定度量值啟用，未逐一驗證。</li>
+   <li>資料夾參數在磁碟上的 .tmdl 寫的是 <code>D:/PowerBI庫存分析報告\data_tw</code>，和本機專案實際位置不同；要重新整理資料前請改成你自己的路徑。</li>
+  </ul></div>
+ </div>
+ <p class="hint">以上「觀察」是我比對報表畫面、模型查詢與本機檔案後的判斷，未向原作者確認。畫面取自 Power BI Desktop 當下狀態（擷取時顯示有未儲存變更），可能與磁碟上的版本略有差異。</p>
+</section>
+
+<!-- RUN -->
+<section id="run">
+ <h2><small>11</small>自己動手：先線上看，再 3 步打開它</h2>
+ <p style="font-size:18px;margin-bottom:10px">🌐 <b>線上路徑</b>（不用安裝任何東西）：Power BI 公開發佈版，直接在瀏覽器操作篩選器、切頁。</p>
+ <p style="margin-bottom:18px"><a class="btn pri" href="https://app.powerbi.com/view?r=eyJrIjoiNzJhYTNhZmYtZjg0YS00NDhkLWJlMDctYzJjNjFmN2UzMGY0IiwidCI6IjE2ZGVlZGU4LTc5ZTktNGUzMy05OWU2LTlkOGQzOTQyZDc5NiIsImMiOjEwfQ%3D%3D" target="_blank" rel="noopener">開啟線上報告 ↗</a></p>
+ <p style="font-size:18px;margin-bottom:6px">想拆開研究，再用下面 3 步開本機檔：</p>
+ <ol style="margin:0 0 14px 22px;font-size:18px;line-height:2">
+  <li>用 Power BI Desktop 開啟 <code>.pbip</code> 檔（需開啟「Power BI 專案」預覽功能）。</li>
+  <li>到「轉換資料 → 參數」把 <code>資料來源資料夾路徑</code> 改成你的 data_tw 路徑。</li>
+  <li>重新整理全部資料，切到各頁面試試篩選器。</li>
+ </ol>
+ <div class="cmd"><pre id="c1">D:\CODEX\POWER BI\PowerBI庫存分析報告\PowerBI庫存分析報告.pbip</pre><button class="btn" data-copy="c1">複製路徑</button></div>
+ <div class="cmd"><pre id="c2">D:\CODEX\POWER BI\PowerBI庫存分析報告\data_tw</pre><button class="btn" data-copy="c2">複製資料夾路徑</button></div>
+</section>
+
+<footer>畫面取自本機專案與 Power BI Desktop，報告左上角品牌圖標已遮蔽；資料為示範（模擬）資料，不代表任何真實公司。</footer>
+</main>
+
+<div id="lb" role="dialog" aria-label="圖片放大"><button class="x" aria-label="關閉">×</button><img alt=""></div>
+
+<script>
+const IMGS=/*IMGS*/{};
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+$$('img[data-k]').forEach(i=>i.src=IMGS[i.dataset.k]);
+/* theme */
+$('#theme').onclick=()=>{const r=document.documentElement;r.dataset.theme=r.dataset.theme==='dark'?'':'dark';try{localStorage.setItem('th',r.dataset.theme||'')}catch(e){}};
+try{const t=localStorage.getItem('th');if(t)document.documentElement.dataset.theme=t}catch(e){}
+/* count up */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,n=+el.dataset.n,d=+(el.dataset.d||0);io.unobserve(el);const t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/1200),v=n*(1-Math.pow(1-p,3));el.textContent=v.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});if(p<1)requestAnimationFrame(f)})(t0)}),{threshold:.4});
+$$('[data-n]').forEach(e=>io.observe(e));
+/* lightbox */
+const lb=$('#lb');function openLb(src){$('img',lb).src=src;lb.classList.add('on');lb.scrollTop=0}
+document.addEventListener('click',e=>{const z=e.target.closest('.zoomable');if(z&&!e.target.closest('.hs')&&z.dataset.key){openLb(IMGS[z.dataset.key]);}});
+lb.onclick=()=>lb.classList.remove('on');document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
+/* copy */
+$$('[data-copy]').forEach(b=>b.onclick=async()=>{const t=$('#'+b.dataset.copy).textContent;try{await navigator.clipboard.writeText(t);b.textContent='已複製 ✓'}catch(e){b.textContent='請手動選取'}setTimeout(()=>b.textContent=b.dataset.copy==='c1'?'複製路徑':'複製資料夾路徑',1600)});
+/* nav highlight */
+const secs=$$('section');const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){$$('nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-40% 0px -55% 0px'});secs.forEach(s=>nio.observe(s));
+
+/* film chapters（秒數＝影片場景起點） */
+const CH=[['開場',0],['首頁',18.7],['六個問題',42.3],['四個詞',47.0],['第1頁 總覽',61.5],['第2頁 結構',95.1],['第3頁 週轉',113.1],['第4頁 庫齡',139.4],['第5頁 補貨',161.0],['第6頁 調撥',182.6],['第7頁 盤點',204.0],['度量值',234.0],['星狀模型',257.8],['結語',276.9]];
+const fmt=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
+$('#chips').innerHTML=CH.map(c=>`<button class="chip" data-t="${c[1]}"><small>${fmt(c[1])}</small>${c[0]}</button>`).join('');
+$$('.chip').forEach(b=>b.onclick=()=>{const v=$('#vid');v.currentTime=+b.dataset.t;v.play().catch(()=>{});v.scrollIntoView({block:'center',behavior:'smooth'})});
+
+/* layers */
+const LAYER=[
+ '<b>資料層：</b>19 個 CSV 放在 <code>data_tw</code> 資料夾。<b>事實表 7 張</b>：每日庫存快照（175,200 列）、批次庫存快照（588,056）、庫存流水（108,748）、需求預測（203,520）、銷售需求（89,597）、採購訂單（12,106）、庫存盤點（5,513）。<b>維度表 9 張</b>：商品 80、倉庫 3、客戶 401、供應商 8、渠道 5、變動型別 13、批次 13,064、日期 2,192、訂單號 111,034。另有補貨策略（240）與 2 張輔助表。',
+ '<b>模型層：</b>把 20 張表連起來（43 條業務關聯），再寫 <b>93 個度量值</b>。重點是「規則只寫一次」：在庫金額、週轉天數、缺貨率…所有頁面共用同一個定義，不會 A 頁一個算法、B 頁另一個。',
+ '<b>報告層：</b>首頁＋庫存經營總覽＋6 個專題頁（結構與資金佔用、週轉效率、庫齡臨期與退市、缺貨與補貨、倉間調撥、盤點準確率），共 8 頁。統計自各頁 visual.json：200 個視覺物件，包括 71 個導覽按鈕、31 個 HTML 內容視覺、29 張卡片、28 個篩選器、13 個條形圖、10 個折線圖、3 個矩陣／交叉表…']
+function setLayer(i){$$('.layer').forEach((b,j)=>b.setAttribute('aria-pressed',i===j));$('#layerInfo').innerHTML=LAYER[i]}
+$$('.layer').forEach(b=>b.onclick=()=>setLayer(+b.dataset.i));setLayer(0);
+
+/* six questions */
+const QS=[['錢壓在哪裡？','看結構：集中在哪些品類、品牌、倉庫？良品、凍結、殘次各占多少？',2],['庫存轉得快不快？','看周轉：哪些商品資金占用高、卻賣得慢？',3],['哪些貨有風險？','看風險：庫齡過長？快到有效期？已經退市？',4],['要不要補貨？','看補貨：考慮可用、在途、安全庫存後，哪些商品要補？',5],['別的倉有沒有餘貨？','看調撥：一邊有餘、一邊短缺時，先調再買。',6],['帳和實物對得上嗎？','看準確率：盤點差異集中在哪？哪些要複核？',7]];
+$('#qgrid').innerHTML=QS.map((q,i)=>`<button class="q" data-p="${q[2]}"><div class="th"><img data-k="p${q[2]}_s" alt="第 ${q[2]} 頁縮圖"></div><h3><i>${i+1}</i>${q[0]}</h3><span>${q[1]}</span><br><span style="color:var(--orange);font-weight:800">→ 第 ${q[2]} 頁</span></button>`).join('');
+$$('#qgrid img').forEach(i=>i.src=IMGS[i.dataset.k]);
+$$('.q').forEach(b=>b.onclick=()=>{setPage(+b.dataset.p);$('#pages').scrollIntoView({behavior:'smooth'})});
+
+/* journey */
+const ROWS=`<tr><td>2026-05-01</td><td>雲啟剃鬚刀03型</td><td>華東倉</td><td>27</td><td>23</td><td>23</td><td>32</td><td>19</td><td>16</td><td>5,400</td></tr>
+<tr><td>2026-05-01</td><td>朗辰迴圈扇04型</td><td>華東倉</td><td>7</td><td>4</td><td>4</td><td>38</td><td>10</td><td>16</td><td>3,605</td></tr>
+<tr><td>2026-05-01</td><td>明川空氣清淨機12型</td><td>華東倉</td><td>8</td><td>3</td><td>3</td><td>8</td><td>6</td><td>10</td><td>2,360</td></tr>`;
+const J=[
+ {t:'① 原始資料：一行＝一個商品在一個倉庫的一天',p:'這是「事實_庫存日快照.csv」真實的三列（2026-05-01，節錄 10 欄，商品與倉庫已由代號換成名稱）。每一列只是一天的庫存狀態，還看不出好壞。',h:`<div class="scroll"><table class="t"><tr><th>快照日期</th><th>商品</th><th>倉庫</th><th>期末帳面</th><th>良品</th><th>可用</th><th>採購在途</th><th>安全庫存</th><th>建議補貨</th><th>期末金額</th></tr>${ROWS}</table></div><p class="hint">整張表 175,200 列＝80 商品 × 3 倉 × 730 天。</p>`},
+ {t:'② 載入：Power Query 找到資料夾',p:'CSV 的位置放在一個參數裡。換電腦，只要改這一個參數。',h:`<pre><span class="c">資料來源資料夾路徑</span> = "D:/PowerBI庫存分析報告\\data_tw"</pre><p class="hint">取自 expressions.tmdl（磁碟上的檔案）。你的電腦要改成自己的路徑（見最下方）。</p>`},
+ {t:'③ 建模：把表連起來',p:'快照用「商品鍵」連到商品表、用「倉庫鍵」連到倉庫表、用「快照日期」連到日期表。連好之後，按任何維度都能切。',h:`<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:17px;line-height:2.2"><span class="pill">事實_庫存日快照</span>──商品鍵──▶<span class="pill">維度_商品</span><br><span class="pill">事實_庫存日快照</span>──倉庫鍵──▶<span class="pill">維度_倉庫</span><br><span class="pill">事實_庫存日快照</span>──快照日期──▶<span class="pill">維度_日期</span></div><p class="hint">共 61 條關聯：43 條業務關聯（其中 3 條停用）＋ 18 條自動日期表。</p>`},
+ {t:'④ 計算：DAX 寫成一條規則',p:'週轉天數＝日均在庫金額 × 期間天數 ÷ 淨銷售出庫成本。',h:`<pre><span class="c">在庫週轉天數</span> =
+<span class="k">IF</span>(
+    [是否連續期間] = 1 &amp;&amp; [淨銷售出庫成本] &gt; 0,
+    <span class="k">DIVIDE</span>(
+        [日均在庫金額] * [業務期間天數],
+        [淨銷售出庫成本]
+    )
+)</pre><p class="hint">完整定義取自模型的度量值「在庫週轉天數」。</p>`},
+ {t:'⑤ 呈現：變成你看到的卡片',p:'同一條公式，放進卡片、折線、散點圖。你按篩選器，它們一起變。',h:`<div class="shot zoomable" data-key="p3" style="max-height:300px;overflow:hidden"><img data-k="p3_s" alt="庫存週轉效率頁：日均在庫金額 66.6 萬、淨銷售出庫成本 1,779.3 萬、週轉 26.71 次、22.8 天四張 KPI 卡" style="margin-top:-18%"></div>`}];
+const stepsEl=$('#steps');let cur=0;
+J.forEach((s,i)=>{const b=document.createElement('button');b.className='step';b.setAttribute('role','tab');b.innerHTML=`<span class="no">${i+1}</span><span>${s.t.replace(/^.\s/,'').split('：')[0]}</span>`;b.onclick=()=>setStep(i);stepsEl.appendChild(b)});
+function setStep(i){cur=i;$$('.step').forEach((b,j)=>b.setAttribute('aria-selected',i===j));const s=J[i];$('#stage').innerHTML=`<h3>${s.t}</h3><p>${s.p}</p>${s.h}<div style="margin-top:16px;display:flex;gap:8px"><button class="btn" ${i?'':'disabled'} onclick="setStep(${i-1})">← 上一步</button><button class="btn pri" ${i<J.length-1?'':'disabled'} onclick="setStep(${i+1})">下一步 →</button></div>`;$$('#stage img[data-k]').forEach(im=>im.src=IMGS[im.dataset.k])}
+setStep(0);
+
+/* star */
+const FACT=[
+ ['事實_庫存日快照','175,200','30','每個「商品 × 倉庫 × 日」一列：期初、入庫、出庫、期末帳面、良品／凍結／殘次、可用、採購在途、調撥在途、安全庫存、建議補貨…'],
+ ['事實_庫存流水','108,748','19','每一次庫存變動一列：業務日期、商品、倉庫、批次、變動型別（銷售出庫、調撥、盤點調整…）、變動數量、變動成本金額（週轉用的「出庫成本」來自這裡）'],
+ ['事實_批次庫存日快照','588,056','12','每個「批次 × 日」一列：結存數量與金額、原始入庫日期、庫齡天數、有效截止日期、剩餘有效天數（庫齡與臨期從這裡算）'],
+ ['事實_需求預測','203,520','9','每個預測版本日期、目標週、商品、倉庫的預測數量（未來 8 週預測來自這裡）'],
+ ['事實_銷售需求','89,597','18','每筆需求：需求日期、承諾發貨日期、渠道、客戶、需求數量、取消數量、首次承諾時點滿足數量…（缺貨率來自這裡）'],
+ ['事實_採購訂單','12,106','16','每筆採購：下單日期、承諾到貨日期、最終收貨日期、供應商、訂購數量、累計收貨…（採購在途、逾期在途）'],
+ ['事實_庫存盤點','5,513','15','每筆盤點：盤點日期、批次、庫存狀態、盤點前帳面、實盤、差異數量、差異成本金額、差異原因、審批狀態（準確率來自這裡）'],
+ ['配置_補貨策略','240','14','每個商品×倉庫的補貨參數：首選供應商、採購提前期、複核週期、安全庫存天數、最小訂貨量、臨期與長庫齡閾值天數']];
+const DIM={
+ '維度_商品':['80','15','商品名稱・品類・子品類・品牌・型號・上市日期・計劃退市日期・是否管理有效期・模擬標準單位成本・建議零售價'],
+ '維度_倉庫':['3','7','倉庫名稱（華東倉、華南倉、華北倉）・區域・省份・城市・倉庫型別'],
+ '維度_日期':['2,192','13','日期・年・季度・年月・年週・週起訖日・是否完整業務週・是否業務期間'],
+ '維度_供應商':['8','5','供應商名稱・所在區域・供應商型別'],
+ '維度_渠道':['5','4','渠道名稱（批發客戶、線下門店、電商平臺、自營商城…）・渠道型別・主要客群'],
+ '維度_客戶':['401','6','客戶名稱・客戶型別・所在區域・客戶等級'],
+ '維度_訂單號':['111,034','5','訂單號・訂單型別・建立日期・來源系統（把各事實表的單據串起來的橋）'],
+ '維度_批次':['13,064','8','批次號・商品・來源供應商・生產日期・首次入庫日期・有效截止日期・是否期初批次'],
+ '維度_庫存變動型別':['13','6','變動型別名稱・業務大類・數量方向・是否影響銷售成本・是否內部移動'],
+ '輔助_目標週':['313','2','預測的目標週（日期・年週），給「未來 8 週預測」圖當橫軸']};
+const E={ // 事實 → [維度…]（* 結尾＝停用的備用關聯）
+ '配置_補貨策略':['維度_商品','維度_倉庫','維度_供應商'],
+ '事實_庫存流水':['維度_商品','維度_倉庫','維度_供應商','維度_渠道','維度_客戶','維度_訂單號','維度_批次','維度_庫存變動型別','維度_日期','維度_訂單號*'],
+ '事實_庫存日快照':['維度_商品','維度_倉庫','維度_日期'],
+ '事實_批次庫存日快照':['維度_商品','維度_倉庫','維度_供應商','維度_批次','維度_日期'],
+ '事實_需求預測':['維度_商品','維度_倉庫','維度_日期','輔助_目標週'],
+ '事實_銷售需求':['維度_商品','維度_倉庫','維度_渠道','維度_客戶','維度_訂單號','維度_日期'],
+ '事實_採購訂單':['維度_商品','維度_倉庫','維度_供應商','維度_訂單號','維度_日期','維度_日期*','維度_日期*'],
+ '事實_庫存盤點':['維度_商品','維度_倉庫','維度_訂單號','維度_批次','維度_日期']};
+(function(){const svg=$('#starSvg');let h='';
+ const FX=450,fy=i=>70+i*78;
+ const left=['維度_商品','維度_倉庫','維度_日期','維度_供應商','維度_渠道'],right=['維度_客戶','維度_訂單號','維度_批次','維度_庫存變動型別','輔助_目標週'];
+ const dpos={};left.forEach((n,i)=>dpos[n]=[110,90+i*130]);right.forEach((n,i)=>dpos[n]=[790,90+i*130]);
+ const edges=[];
+ FACT.forEach((f,fi)=>{(E[f[0]]||[]).forEach(d=>{const off=d.endsWith('*'),dn=d.replace('*',''),[x,y]=dpos[dn],isL=x<450;
+   const x1=isL?x+90:x-90,x2=isL?FX-115:FX+115,y2=fy(fi)+26,mx=(x1+x2)/2;
+   edges.push(`<path class="edge${off?' off':''}" data-a="${dn}" data-b="${f[0]}" d="M${x1},${y} C${mx},${y} ${mx},${y2} ${x2},${y2}"/>`)})});
+ h+=edges.join('');
+ FACT.forEach((f,i)=>{h+=`<g class="node" tabindex="0" role="button" data-n="${f[0]}" aria-label="${f[0]}"><rect x="${FX-115}" y="${fy(i)}" width="230" height="52" rx="12" fill="#f6b47c" stroke="#e9792f" stroke-width="2"/><text x="${FX}" y="${fy(i)+32}" text-anchor="middle" fill="#3b1d05" font-size="${f[0].length>9?15:17}">${f[0]}</text></g>`});
+ Object.entries(dpos).forEach(([n,[x,y]])=>{h+=`<g class="node" tabindex="0" role="button" data-n="${n}" aria-label="${n}"><rect x="${x-90}" y="${y-26}" width="180" height="52" rx="12" fill="#a6e6d6" stroke="#2fb59a" stroke-width="2"/><text x="${x}" y="${y+7}" text-anchor="middle" fill="#0b3b30" font-size="${n.length>7?15:17}">${n}</text></g>`});
+ h+=`<text x="450" y="36" text-anchor="middle" fill="#e9792f" font-weight="800" font-size="20">事實／設定表 ×8</text><text x="110" y="36" text-anchor="middle" fill="#2fb59a" font-weight="800" font-size="20">維度表</text><text x="790" y="36" text-anchor="middle" fill="#2fb59a" font-weight="800" font-size="20">維度／輔助表</text>`;
+ svg.innerHTML=h;
+ function sel(n){$$('.node',svg).forEach(g=>g.classList.toggle('on',g.dataset.n===n));$$('.edge',svg).forEach(e=>e.classList.toggle('hi',e.dataset.a===n||e.dataset.b===n));
+  const f=FACT.find(x=>x[0]===n),isF=!!f;let rows,cols,desc,links;
+  if(isF){rows=f[1];cols=f[2];desc=f[3];links=[...new Set((E[n]||[]).map(x=>x.replace('*','')))]}
+  else{const d=DIM[n];rows=d[0];cols=d[1];desc=d[2];links=FACT.filter(ff=>(E[ff[0]]||[]).some(x=>x.replace('*','')===n)).map(ff=>ff[0])}
+  $('#nodeInfo').innerHTML=`<span class="tag ${isF?'f':'d'}">${isF?'事實／設定表':'維度表'}</span><h3>${n}</h3><p style="font-size:34px;font-weight:800;color:var(--teal2)">${rows} <small style="font-size:16px;color:var(--mut)">列 · ${cols} 欄</small></p><p style="margin:8px 0;color:var(--mut)">${desc}</p><p><b>連到（${links.length}）：</b></p>${links.map(l=>`<span class="pill">${l}</span>`).join('')}`}
+ $$('.node',svg).forEach(g=>{g.onclick=()=>sel(g.dataset.n);g.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();sel(g.dataset.n)}}});sel('事實_庫存日快照')})();
+
+/* pages */
+const R=(x,y,w,h)=>({l:x/19.2,t:y/10.8,w:w/19.2,h:h/10.8});
+const K4=R(256,192,866,276);
+const P=[
+ {n:'首頁',q:'一進來，先看見什麼？',d:'標題、一句話目的、「進入報告」按鈕，和 4 個總覽數字。',hs:[[R(1225,525,650,345),'四個總覽數字','在庫金額 78.5 萬、週轉 22.5 天、缺貨率 8%、盤點準確率 93.5%。這是「整份資料到 2026/8/31」的數字，和其他頁預設期間不同。'],[R(170,230,560,260),'報告標題','「Power BI 庫存分析報告」：兼顧庫存資金、週轉效率與缺貨預警分析，追蹤庫存健康度。'],[R(170,770,170,52),'進入報告','按鈕帶你去「庫存經營總覽」。設計上是「從總覽開始，逐層深入」。']]},
+ {n:'庫存經營總覽',q:'現在最該注意什麼？',d:'5 張 KPI、資金趨勢、風險商品前十、倉庫資金占比，加一段會隨篩選改寫的「庫存管理要點」。',hs:[[R(888,34,280,94),'分析期間','預設 2024/9/1–2026/5/1。拉動它，整頁數字一起變。'],[R(256,192,1616,124),'5 張 KPI 卡','在庫金額 58.9 萬、週轉 22.8 天、缺貨率 7.5%、超過 180 天庫存占比 13.9%、盤點準確率 93.6%。'],[R(1240,346,646,198),'風險商品前十','第一名明川空氣清淨機 06 型（7,471 元）。風險＝臨期、退市、長庫齡「去重」後的金額。'],[R(1240,560,648,200),'倉庫資金占用','華東倉 41.55%、華南倉 34.5%、華北倉 23.94%（合計 589,026 元）。'],[R(256,778,1634,272),'庫存管理要點（DAX 產生）','這段文字是度量值組出來的 HTML：換期間、品類、倉庫，數字與結論會一起變。底下口徑寫明：風險金額已去重，不可相加。']]},
+ {n:'庫存結構與資金佔用',q:'錢壓在哪裡？',d:'在庫、可用、凍結、殘次四個金額，各倉庫存狀態結構，品牌與品類的資金占用。',hs:[[K4,'4 張 KPI','期末在庫 58.9 萬、可用 48.3 萬、凍結 0 元、殘次 10.6 萬。'],[R(1152,193,735,278),'各倉庫存狀態結構','良品／凍結／殘次堆疊：華北 117 千＋24 千、華南 165 千＋39 千、華東 202 千＋43 千（良品＋殘次）。'],[R(1152,760,735,302),'品牌資金佔用','星瀾 121,643 最高，其次朗辰 118,525、雲啟 97,842。'],[R(256,760,865,302),'品類 × 倉庫矩陣','廚房與生活電器 199,332 最大；可展開看到商品。']]},
+ {n:'庫存週轉效率',q:'庫存轉得快不快？',d:'日均在庫、淨銷售出庫成本、週轉次數與天數；散點圖找出高占用、慢週轉的商品。',hs:[[K4,'4 張 KPI','日均在庫 66.6 萬；淨銷售出庫成本 1,779.3 萬；週轉 26.71 次；22.8 天。'],[R(1145,193,742,278),'散點圖','橫軸週轉天數、縱軸在庫金額。右上角＝又慢又佔錢，優先關注。目前右上角沒有點；週轉超過 50 天的幾個點，金額都在約 7 千元以下（由圖估讀）。'],[R(1146,494,741,246),'品類週轉天數','環境電器 25.6 天最慢，廚房與生活電器 21.2 天最快。'],[R(257,766,862,296),'商品效率清單','ABC 分類、在庫金額、銷售出庫成本、週轉天數、長期無銷售庫存金額。']]},
+ {n:'庫齡、臨期與退市風險',q:'哪些貨有風險？',d:'超過 180 天、90 天內臨期、已過期、已退市四個金額，庫齡分層，風險商品排名與批次清單。',hs:[[K4,'4 張風險 KPI','超過 180 天 8.2 萬；90 天內臨期 327 元；已過期 531 元；已退市 1.5 萬。'],[R(1146,193,741,278),'庫齡分層','0–90 天 482,165；91–180 天 25,054；181–365 天 40,387；366 天以上 41,420（元）。'],[R(1146,507,741,246),'風險商品（去重）','明川空氣清淨機 06 型 7.5 千最高。同一批貨可能同時有多種風險，所以先去重再排名。'],[R(257,778,862,276),'批次處置清單','精確到商品、倉庫、批次號、有效截止日與庫齡分層。']]},
+ {n:'缺貨預警與補貨決策',q:'要不要補貨？',d:'缺貨率、未交銷售、逾期在途、待補貨組合，未來 8 週預測，與補貨工作表。',hs:[[K4,'4 張 KPI','需求缺貨率 7.5%；未交銷售量 49 件；逾期採購在途 145 件；待補貨組合 104 項。'],[R(1146,193,741,278),'未來 8 週預測','2026-W18 到 W25：每週 1,036 → 1,162 → 1,702 件（截至日最新預測版本）。'],[R(1146,507,741,246),'各渠道需求缺貨率','批發客戶 10.2% 最高，其次線下門店 6.7%、電商平臺 6.6%、自營商城 6.5%。'],[R(257,778,862,276),'補貨工作表','可用庫存、採購在途、逾期在途、預測需求、安全庫存，並排；合計建議補貨 814 件。']]},
+ {n:'倉間平衡與調撥',q:'別的倉有沒有餘貨？',d:'三個倉的資金趨勢、調撥在途、調撥出入變化，與各倉建議補貨。',hs:[[K4,'4 張 KPI','在庫 58.9 萬；調撥在途 3,715 元；自有庫存 59.3 萬（在庫＋調撥在途）；調撥出庫 1,545 件。'],[R(1146,193,741,278),'三個倉庫的資金趨勢','三條線疊在一起，看誰高誰低、誰在變。'],[R(1146,507,741,246),'各倉建議補貨','華東倉 362、華南倉 274、華北倉 178（合計 814）。'],[R(1146,778,741,284),'期間調撥出庫：按倉','華北倉 822 最多，其次華南倉 434、華東倉 289（合計 1,545）。']]},
+ {n:'盤點與庫存準確率',q:'帳和實物對得上嗎？',d:'盤點準確率、差異金額、待複核金額，差異原因與明細。',hs:[[K4,'4 張 KPI','盤點記錄準確率（卡片顯示 93.6%，見第 10 節的說明）；絕對差異 5.7 萬元；待複核 5,527 元（審批狀態＝待複核）；盤點記錄 4,571 條。'],[R(1146,193,741,278),'差異原因：淨差異金額','收貨漏記 +29,085（實盤比帳上多）；儲存損耗 −27,894（實盤比帳上少）；盤點無差異 0。'],[R(257,507,862,246),'準確率趨勢','圖標題寫明「僅代表已抽盤記錄」，不能當成全倉每天的準確率。'],[R(1146,507,741,246),'各倉盤點準確率','華北倉 93.8%、華南倉 93.6%、華東倉 93.2%。']]}];
+const tabs=$('#ptabs');let pi=0;
+const TABN=['首頁','總覽','結構與資金','週轉效率','庫齡與風險','缺貨與補貨','倉間調撥','盤點準確率'];
+P.forEach((p,i)=>{const b=document.createElement('button');b.className='tab';b.setAttribute('role','tab');b.textContent=i?i+'. '+TABN[i]:TABN[0];b.onclick=()=>setPage(i);tabs.appendChild(b)});
+function setPage(i){pi=i;const p=P[i];$$('.tab').forEach((b,j)=>b.setAttribute('aria-selected',i===j));const im=$('#pimg');im.src=IMGS['p'+i+'_s'];im.dataset.key='p'+i;im.alt=`${p.n}頁面截圖：${p.d}`;
+ $$('.hs').forEach(e=>e.remove());p.hs.forEach((h,k)=>{const r=h[0],b=document.createElement('button');b.className='hs';b.style.cssText=`left:${r.l}%;top:${r.t}%;width:${r.w}%;height:${r.h}%`;b.setAttribute('aria-label',h[1]);b.onclick=e=>{e.stopPropagation();showHs(k)};$('#pshot').appendChild(b)});
+ $('#pside').innerHTML=`<span class="tag f">${i?'第 '+i+' 頁':'首頁'}</span><h3>${p.n}</h3><div class="qq">${p.q}</div><p>${p.d}</p><div id="hsInfo">👆 點圖上的橘點，看這塊在回答什麼。</div><button class="btn hotbtn" onclick="showHs(0)">逐個看重點</button>`}
+function showHs(k){const p=P[pi];k=k%p.hs.length;$$('.hs').forEach((e,j)=>e.classList.toggle('on',j===k));const h=p.hs[k];$('#hsInfo').innerHTML=`<b>${h[1]}</b><br>${h[2]}`;$('.hotbtn').setAttribute('onclick',`showHs(${k+1})`);$('.hotbtn').textContent=k+1<p.hs.length?'下一個重點 →':'回到第一個 ↺'}
+setPage(0);
+
+/* flips */
+const F=[
+ {t:'在庫週轉天數',s:'平均庫存夠賣幾天',m:'日均在庫金額 × 期間天數 ÷ 淨銷售出庫成本。',c:`在庫週轉天數 =\nIF(\n  [是否連續期間] = 1 && [淨銷售出庫成本] > 0,\n  DIVIDE(\n    [日均在庫金額] * [業務期間天數],\n    [淨銷售出庫成本]\n  )\n)`},
+ {t:'需求缺貨率',s:'沒按承諾滿足的比例',m:'未按承諾滿足量 ÷ 有效需求數量。',c:`需求缺貨率 =\nDIVIDE(\n  [未按承諾滿足量],\n  [有效需求數量]\n)`},
+ {t:'盤點記錄準確率',s:'帳實一致的比例',m:'差異數量為 0 的盤點記錄 ÷ 全部盤點記錄；只反映已盤記錄。',c:`盤點記錄準確率 =\nDIVIDE(\n  CALCULATE(\n    COUNTROWS('事實_庫存盤點'),\n    '事實_庫存盤點'[差異數量] = 0\n  ),\n  [盤點記錄數]\n)`},
+ {t:'超180天庫存佔比',s:'賣不動的資金占比',m:'庫齡超過 180 天的庫存金額 ÷ 期末在庫金額。',c:`超180天庫存佔比 =\nDIVIDE(\n  [超180天庫存金額],\n  [期末在庫金額]\n)`},
+ {t:'期末在庫金額',s:'快照日那天的庫存值',m:'不是整段期間加總，而是取「庫存快照日期」當天的期末標準成本金額。',c:`期末在庫金額 =\nVAR _asof = [庫存快照日期]\nRETURN\n  IF(NOT ISBLANK(_asof),\n    CALCULATE(\n      SUM('事實_庫存日快照'[期末標準成本金額]),\n      REMOVEFILTERS('維度_日期'),\n      '維度_日期'[日期] = _asof\n    )\n  )`},
+ {t:'建議補貨數量',s:'該補多少件',m:'度量值只做加總，建議量已在資料表的欄位裡算好（資料層）。',c:`建議補貨數量 =\nVAR _asof = [庫存快照日期]\nRETURN\n  CALCULATE(\n    SUM('事實_庫存日快照'[建議補貨數量]),\n    REMOVEFILTERS('維度_日期'),\n    '維度_日期'[日期] = _asof\n  )   -- 節錄`}];
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+F.forEach(f=>{const b=document.createElement('button');b.className='flip';b.setAttribute('aria-pressed','false');b.innerHTML=`<div class="in"><div class="f"><h3>${f.t}</h3><b>${f.s}</b><p>${f.m}</p><span class="tapme">點一下看公式 ↻</span></div><div class="b"><pre style="background:none;padding:0;white-space:pre">${esc(f.c)}</pre></div></div>`;b.onclick=()=>b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true');$('#flips').appendChild(b)});
+
+/* guide（從 1920 寬的頁面圖裁切） */
+const G=[['卡片＋迷你趨勢','看重點數字',1,[256,192,304,124]],['面積／折線圖','看隨時間的變化',1,[256,346,958,198]],['條形圖','比品類、商品、渠道',1,[1240,346,646,198]],['散點圖','同時看週轉天數與金額',3,[1145,193,742,278]],['環形圖','看占比（倉庫資金）',1,[1240,560,648,200]],['矩陣表','品類 × 倉庫交叉對照',2,[256,760,865,302]]];
+G.forEach(g=>{const [n,u,pg,r]=g,W=360,sc=W/r[2],H=Math.min(190,r[3]*sc);const d=document.createElement('div');d.className='card gc';d.innerHTML=`<div class="im" style="width:100%;height:${H}px;background-image:url(${IMGS['p'+pg]});background-size:${1920*sc}px ${1080*sc}px;background-position:${-r[0]*sc}px ${-r[1]*sc}px" role="img" aria-label="${n}範例"></div><b>${n}</b><p>${u}</p>`;$('#guide').appendChild(d)});
+
+/* measure bars */
+const M=[['展示輔助',42,1],['週轉效率',10,0],['庫齡與風險',10,0],['庫存餘額',8,0],['預測與補貨',8,0],['盤點管理',5,0],['需求與服務',4,0],['資金與結構',3,0],['調撥管理',3,0]];
+$('#mbars').innerHTML=M.map(m=>`<div class="mrow ${m[2]?'disp':''}"><span>${m[0]}</span><div class="mbar"><i data-w="${m[1]/42*100}"></i></div><b>${m[1]}</b></div>`).join('');
+new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){$$('.mbar i',e.target).forEach(i=>i.style.width=i.dataset.w+'%');o.unobserve(e.target)}}),{threshold:.3}).observe($('#mbars'));
+</script>
+</body>
+</html>
