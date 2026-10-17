@@ -48,6 +48,10 @@ h2 small{display:inline-block;font-size:15px;font-weight:700;color:#fff;backgrou
 .chip:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
 .chip small{color:var(--orange);margin-right:4px;font-variant-numeric:tabular-nums}
 .chip:hover small{color:#fff}
+.films{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.fcol h3{font-size:20px;margin:0 0 10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.fcol h3 .len{font-size:13px;font-weight:700;color:#fff;background:var(--teal);padding:2px 10px;border-radius:12px}
+.fcol h3 .len.story{background:var(--orange)}
 /* layers */
 .layers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .layer{padding:22px;text-align:left;border:2px solid var(--line);background:var(--card);border-radius:var(--r);transition:.2s;position:relative}
@@ -159,7 +163,7 @@ details p{color:var(--mut);padding:0 0 14px}
 #lb img{display:block;margin:0 auto;max-width:none;width:min(2400px,220vw);border-radius:8px;background:#fff}
 #lb .x{position:fixed;right:18px;top:12px;font-size:34px;color:#fff;background:none;border:0}
 footer{padding:50px 0 70px;color:var(--mut);font-size:14px}
-@media(max-width:900px){.hero,.star,.rep,.journey{grid-template-columns:1fr}.layers,.flips,.two,.qs{grid-template-columns:1fr}.guide{grid-template-columns:repeat(2,1fr)}.kpis{grid-template-columns:repeat(2,1fr)}.layer:not(:last-child)::after{display:none}.steps{flex-direction:row;overflow-x:auto}.step{flex:none}h2{font-size:27px}}
+@media(max-width:900px){.films{grid-template-columns:1fr}.hero,.star,.rep,.journey{grid-template-columns:1fr}.layers,.flips,.two,.qs{grid-template-columns:1fr}.guide{grid-template-columns:repeat(2,1fr)}.kpis{grid-template-columns:repeat(2,1fr)}.layer:not(:last-child)::after{display:none}.steps{flex-direction:row;overflow-x:auto}.step{flex:none}h2{font-size:27px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -187,11 +191,21 @@ footer{padding:50px 0 70px;color:var(--mut);font-size:14px}
 
 <!-- FILM -->
 <section id="film">
- <h2><small>▶</small>影片　5 分鐘看完整份報告</h2>
- <p class="lead">旁白＋字幕。沒時間往下捲的話，先看這支。點下面的章節可以直接跳。</p>
- <div class="card vid"><video id="vid" controls preload="metadata" playsinline poster="poster.jpg"><source src="film.mp4" type="video/mp4">你的瀏覽器不支援影片播放。</video></div>
- <div class="chips" id="chips"></div>
- <p class="hint">旁白：Gemini TTS（Kore）；配樂為程式合成的柔和鋼琴與音墊。旁白發音若有誤讀，以畫面字幕為準。</p>
+ <h2><small>▶</small>兩支影片，兩種看法</h2>
+ <p class="lead">想快速搞懂，看左邊的<b>圖解導覽</b>；想輕鬆看個故事，看右邊的<b>動畫</b>。兩支都有旁白＋字幕，點下面的章節可以直接跳。</p>
+ <div class="films">
+  <div class="fcol">
+   <h3>🎬 圖解導覽（講解版）<span class="len">4 分 56 秒</span></h3>
+   <div class="card vid"><video id="vid" controls preload="metadata" playsinline poster="poster.jpg"><source src="film.mp4" type="video/mp4">你的瀏覽器不支援影片播放。</video></div>
+   <div class="chips" id="chips"></div>
+  </div>
+  <div class="fcol">
+   <h3>🎞️ 動畫《阿倉的週一》（故事版）<span class="len story">2 分 38 秒</span></h3>
+   <div class="card vid"><video id="vid2" controls preload="metadata" playsinline poster="animation-poster.jpg"><source src="animation.mp4" type="video/mp4">你的瀏覽器不支援影片播放。</video></div>
+   <div class="chips" id="chips2"></div>
+  </div>
+ </div>
+ <p class="hint">兩支影片的旁白都是 Gemini TTS（Kore），配樂與音效為程式合成。動畫的人物與情節為虛構，數字取自上方報告的示範資料。旁白發音若有誤讀，以畫面字幕為準。</p>
 </section>
 
 <!-- LAYERS -->
@@ -346,8 +360,10 @@ const secs=$$('section');const nio=new IntersectionObserver(es=>es.forEach(e=>{i
 /* film chapters（秒數＝影片場景起點） */
 const CH=[['開場',0],['首頁',18.7],['六個問題',42.3],['四個詞',47.0],['第1頁 總覽',61.5],['第2頁 結構',95.1],['第3頁 週轉',113.1],['第4頁 庫齡',139.4],['第5頁 補貨',161.0],['第6頁 調撥',182.6],['第7頁 盤點',204.0],['度量值',234.0],['星狀模型',257.8],['結語',276.9]];
 const fmt=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
-$('#chips').innerHTML=CH.map(c=>`<button class="chip" data-t="${c[1]}"><small>${fmt(c[1])}</small>${c[0]}</button>`).join('');
-$$('.chip').forEach(b=>b.onclick=()=>{const v=$('#vid');v.currentTime=+b.dataset.t;v.play().catch(()=>{});v.scrollIntoView({block:'center',behavior:'smooth'})});
+const CH2=[['週一早上',0],['驚魂記',12.2],['錢壓在哪',40.1],['轉得快嗎',53.1],['哪些有風險',66.3],['要不要補貨',84.4],['別的倉',99.1],['帳實相符',114.2],['計算機',129.4],['該做什麼',139.2]];
+const mkChips=(id,list,vid)=>{$(id).innerHTML=list.map(c=>`<button class="chip" data-t="${c[1]}"><small>${fmt(c[1])}</small>${c[0]}</button>`).join('');$$('.chip',$(id)).forEach(b=>b.onclick=()=>{const v=$(vid);v.currentTime=+b.dataset.t;v.play().catch(()=>{});v.scrollIntoView({block:'center',behavior:'smooth'})});};
+mkChips('#chips',CH,'#vid');mkChips('#chips2',CH2,'#vid2');
+['#vid','#vid2'].forEach((a,i)=>$(a).addEventListener('play',()=>{const o=$(['#vid','#vid2'][1-i]);if(!o.paused)o.pause();}));
 
 /* layers */
 const LAYER=[

@@ -1,17 +1,18 @@
 # Power BI 庫存分析報告・圖解導覽
 
-給「完全不懂 Power BI、也不熟庫存管理」的人看的導覽包：一支 5 分鐘介紹影片，加一個可以點、可以放大的互動圖解頁，講解一份 Power BI 庫存分析報告（8 張頁面、回答 6 個庫存管理問題）。
+給「完全不懂 Power BI、也不熟庫存管理」的人看的導覽包：一支 5 分鐘講解影片、一支 2 分半鐘的故事動畫，加一個可以點、可以放大的互動圖解頁，講解一份 Power BI 庫存分析報告（8 張頁面、回答 6 個庫存管理問題）。
 
 | | |
 |---|---|
 | 互動圖解頁（GitHub Pages） | https://jamic710808.github.io/powerbi-inventory-explainer/ |
 | 互動圖解頁（Vercel） | https://powerbi-inventory-explainer.vercel.app |
-| 影片 | 互動頁第 2 區（296 秒，1920×1080／30 fps，繁中旁白＋字幕） |
+| 講解影片 | 互動頁第 2 區左側（296 秒，1920×1080／30 fps，繁中旁白＋字幕） |
+| 故事動畫《阿倉的週一》 | 互動頁第 2 區右側（158 秒，1920×1080／30 fps，扁平插畫＋MG 動效，Kore 旁白） |
 
 ## 這個倉庫有什麼
 
 ```
-docs/                 # 發佈用：index.html（單檔，圖片 base64 內嵌）、film.mp4、poster.jpg → GitHub Pages 從這裡發佈
+docs/                 # 發佈用：index.html（單檔，圖片 base64 內嵌）、film.mp4、animation.mp4、兩張封面圖 → GitHub Pages 從這裡發佈
 assets/               # 報表 8 頁截圖（已把左上角品牌圖標打馬賽克）：p{n}_hi.jpg 3840、p{n}.jpg 1920、p{n}_s.jpg 960
 src/explainer.template.html   # 互動頁模板
 build_explainer.py    # 模板 + assets → 單檔 HTML
@@ -27,6 +28,7 @@ film/
   BRIEF.md            # 事實清單與「不可宣稱」清單
   GAUNTLET.md         # 每一輪獨立評審與修正的紀錄
   CRITIC_1.md / CRITIC_2.md   # 兩輪評審原文
+animation/            # 故事動畫《阿倉的週一》的原始碼與製作紀錄（見下方「動畫」；成片放在 docs/animation.mp4）
 ```
 
 ## 內容概要
@@ -57,6 +59,16 @@ node render.js . --stills 12,60,140 qa      # 只輸出幾張 JPG 做檢查
 
 > `make_assets.py` 需要用 Power BI Desktop 橋接工具（`powerbi-desktop screenshot-all --scale 3`）取得的原始截圖。原始截圖含有未打碼的報表品牌圖標，所以沒有放進倉庫；`assets/` 內是已處理好的版本。
 
+## 動畫《阿倉的週一》
+
+倉管阿倉在週一早上被老闆問了六個問題，他打開一份八頁的 Power BI 庫存報表，一頁一頁找答案。面向成年人，溫暖幽默。畫風是「扁平插畫＋MG 動效」，全部用 Canvas 2D 逐格程式繪製（人物是 2 段 IK 手臂的骨架）；旁白為 Gemini 3.8 Flash TTS 的 Kore，配樂與音效為程式合成的原創內容。
+
+- 腳本與分鏡：[animation/script.md](animation/script.md)、[animation/storyboard.md](animation/storyboard.md)；風格選擇紀錄：[animation/style-choice.md](animation/style-choice.md)
+- 製作與重新產生的指令：[animation/README.md](animation/README.md)
+- 倉庫內只放原始碼與紀錄；成片 `final.mp4` 即 `docs/animation.mp4`。音訊檔（旁白、配樂、混音，約 60 MB）可重新產生，沒有放進倉庫。
+- 規格：1920×1080、30 fps、4,741 格（158.033 秒）、H.264／AAC，響度 −15.9 LUFS、真峰值 −2.0 dBFS。
+- 人物與情節為虛構；畫面中的數字取自上方報告的示範資料，圖表是示意重畫，不是報表截圖。
+
 ## 事實與限制
 
 - 資料為示範（模擬）資料（商品表的成本欄位就叫「模擬標準單位成本」），不代表任何真實公司。
@@ -64,7 +76,8 @@ node render.js . --stills 12,60,140 qa      # 只輸出幾張 JPG 做檢查
 - 報表本身有一處小不一致：盤點準確率卡片顯示 93.6%，同期間直接查詢為 93.55%（四捨五入 93.5%），同頁文字寫 93.5%。原因未查；影片旁白改說「九成三多」。
 - 「每天約 2.93 萬出庫成本」是用報表數字推算的（1,779.3 萬 ÷ 608 天），不是報表上的數字。
 - 畫面取自 Power BI Desktop 當下狀態（擷取時顯示有未儲存變更）。
-- 旁白發音沒有逐句人工聆聽確認。
+- 兩支影片的旁白發音都沒有逐句人工聆聽確認。
+- 動畫的結構檢查、逐格渲染、解碼與音量檢查已跑過；沒有經過像講解片那樣的獨立多輪評審。
 - 影片「近乎靜止」的畫面約 68%：這是講解片的讀圖時間，鏡頭只做緩慢推近與平移。
 
 ## 踩過的坑

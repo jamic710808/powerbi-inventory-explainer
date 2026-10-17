@@ -1,0 +1,51 @@
+{
+  "mode": "preview",
+  "timelineSha256": "280a3835872edb8dbe8755cbbe72206cb11d24b56a9ce088ce5d994ddf50cde5",
+  "browser": "155.0.8059.80",
+  "totalFrames": 4741,
+  "durationSeconds": 158.03333333333333,
+  "determinism": [
+    {
+      "frame": 0,
+      "sha256": "5ca21e8ab93d89ef7120b1838b1553df2516e1919e32c62795f4a19c45ca8f7e",
+      "repeatSha256": "5ca21e8ab93d89ef7120b1838b1553df2516e1919e32c62795f4a19c45ca8f7e",
+      "match": true
+    },
+    {
+      "frame": 901,
+      "sha256": "a1394f744f6f64cd9576004361c03f7264ead93191cf3c71528badf5f64c62f9",
+      "repeatSha256": "a1394f744f6f64cd9576004361c03f7264ead93191cf3c71528badf5f64c62f9",
+      "match": true
+    },
+    {
+      "frame": 2228,
+      "sha256": "1d32deb7dff9c649c936eed314e085167fb0217ae479c394092ad18f2ca6f366",
+      "repeatSha256": "1d32deb7dff9c649c936eed314e085167fb0217ae479c394092ad18f2ca6f366",
+      "match": true
+    },
+    {
+      "frame": 3745,
+      "sha256": "a1a461e6540291acfeb559d9d27b28c85a7b4cc60770aeaa149ec76046251d81",
+      "repeatSha256": "a1a461e6540291acfeb559d9d27b28c85a7b4cc60770aeaa149ec76046251d81",
+      "match": true
+    },
+    {
+      "frame": 4740,
+      "sha256": "e3042637f1b714992b502434ed92fafddfb4c201aeac71847d0605a4db37d9ad",
+      "repeatSha256": "e3042637f1b714992b502434ed92fafddfb4c201aeac71847d0605a4db37d9ad",
+      "match": true
+    }
+  ],
+  "browserErrors": [],
+  "sourceSha256": {
+    "index.html": "d2e8fbe17449cac0faca8c8e4e1a1460465e0dbbc8c6532d802cdb0764ffa273",
+    "lib.js": "a2487cd358dfa21c9dc6bdab5522c52f5b9e2073ad335bf232f08329200677b6",
+    "scenes1.js": "c38d75b4866be75e5a32f70e1b1256a84b0b63f094b37a2e3cc90c06dd93e9f3",
+    "scenes.js": "4c0c1ffd65a776a6a7b403ea06d78217f53a567db876bb18e187a3d36961baf4",
+    "scenes3.js": "bdf2ebaa5f762ee3cf08cfffb5c555c4e0b600e791435bfafd9cbf3a339e8fb8",
+    "scenes2.js": "62684e8de5a59bbb1516b40e08165a5e4a6ec52a9579ed78bebc64fb70120a8d",
+    "runtime.js": "eeee33bc021fe4be974284ba866358d6d98f0f6273906ddb45690957096a5d37",
+    "timeline.json": "280a3835872edb8dbe8755cbbe72206cb11d24b56a9ce088ce5d994ddf50cde5",
+    "cues.json": "84b828bfeb9af4383acf886333e0bb66d2629d1d004fa80c18db6cdb31f9d14a"
+  }
+}

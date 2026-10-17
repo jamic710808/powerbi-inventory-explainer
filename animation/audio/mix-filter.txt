@@ -1,0 +1,13 @@
+[1:a]aresample=48000,aformat=channel_layouts=stereo,volume=1.0,adelay=14400S:all=1[a1];
+[2:a]aresample=48000,aformat=channel_layouts=stereo,volume=1.0,adelay=600000S:all=1[a2];
+[3:a]aresample=48000,aformat=channel_layouts=stereo,volume=1.0,adelay=1940800S:all=1[a3];
+[4:a]aresample=48000,aformat=channel_layouts=stereo,volume=1.0,adelay=2563200S:all=1[a4];
+[5:a]aresample=48000,aformat=channel_layouts=stereo,volume=1.0,adelay=3198400S:all=1[a5];
+[6:a]aresample=48000,aformat=channel_layouts=stereo,volume=1.0,adelay=4064000S:all=1[a6];
+[7:a]aresample=48000,aformat=channel_layouts=stereo,volume=1.0,adelay=4771200S:all=1[a7];
+[8:a]aresample=48000,aformat=channel_layouts=stereo,volume=1.0,adelay=5494400S:all=1[a8];
+[9:a]aresample=48000,aformat=channel_layouts=stereo,volume=1.0,adelay=6224000S:all=1[a9];
+[10:a]aresample=48000,aformat=channel_layouts=stereo,volume=1.0,adelay=6696000S:all=1[a10];
+[11:a]aresample=48000,aformat=channel_layouts=stereo,volume=1.0,adelay=0S:all=1[a11];
+[12:a]aresample=48000,aformat=channel_layouts=stereo,volume=1.0,adelay=0S:all=1[a12];
+[0:a][a1][a2][a3][a4][a5][a6][a7][a8][a9][a10][a11][a12]amix=inputs=13:duration=first:normalize=0,atrim=duration=158.03333333333333,loudnorm=I=-16:TP=-1.5:LRA=9,aresample=48000[out]

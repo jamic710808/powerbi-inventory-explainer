@@ -1,0 +1,223 @@
+{
+  "schema": "code-animation/v1",
+  "title": "阿倉的週一：一份庫存報表，把老闆從驚慌帶到下決定",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "seed": 42,
+  "speechCharsPerSecond": 4.3,
+  "scenes": [
+    {
+      "id": "s01-monday",
+      "title": "週一早上八點",
+      "visualSeconds": 9,
+      "leadSeconds": 0.3,
+      "tailSeconds": 0.45,
+      "narration": "週一早上八點，老闆衝進倉庫，咖啡灑了一半：「阿倉！庫存到底好不好？」阿倉打開一份報表——八頁，六個問題。",
+      "visual": {
+        "subject": {
+          "id": "acang-office",
+          "type": "character-cast"
+        },
+        "style": "flat",
+        "motion": {
+          "action": "acting",
+          "effect": "mg-pop"
+        },
+        "renderer": "canvas2d"
+      }
+    },
+    {
+      "id": "s02-calendar",
+      "title": "封面與驚魂記：少了二十萬？",
+      "visualSeconds": 16,
+      "leadSeconds": 0.3,
+      "tailSeconds": 0.45,
+      "narration": "封面四個數字，像體檢單：在庫七十八點五萬，週轉二十二點五天，缺貨率百分之八，準確率九成三多。老闆剛放心，翻頁就驚呼：五十八點九萬？少了二十萬！阿倉指指日期：這頁只算到五月一日，封面算到八月底。沒掉錢，只是日曆翻了四個月。",
+      "visual": {
+        "subject": {
+          "id": "acang-office",
+          "type": "character-cast"
+        },
+        "style": "flat",
+        "motion": {
+          "action": "acting",
+          "effect": "mg-pop"
+        },
+        "renderer": "canvas2d"
+      }
+    },
+    {
+      "id": "s03-money",
+      "title": "第一問：錢壓在哪",
+      "visualSeconds": 8,
+      "leadSeconds": 0.3,
+      "tailSeconds": 0.45,
+      "narration": "第一問，錢壓在哪？五十八點九萬裡，可用四十八點三萬，殘次十點六萬。華東倉最會囤，像家裡什麼都捨不得丟的那位。",
+      "visual": {
+        "subject": {
+          "id": "acang-office",
+          "type": "character-cast"
+        },
+        "style": "flat",
+        "motion": {
+          "action": "acting",
+          "effect": "mg-pop"
+        },
+        "renderer": "canvas2d"
+      }
+    },
+    {
+      "id": "s04-turnover",
+      "title": "第二問：轉得快不快",
+      "visualSeconds": 8,
+      "leadSeconds": 0.3,
+      "tailSeconds": 0.45,
+      "narration": "第二問，轉得快不快？平均二十二點八天賣完一輪。右上角的「躺平區」，又慢又佔錢的貨會住在那裡——今天，是空的。",
+      "visual": {
+        "subject": {
+          "id": "acang-office",
+          "type": "character-cast"
+        },
+        "style": "flat",
+        "motion": {
+          "action": "acting",
+          "effect": "mg-pop"
+        },
+        "renderer": "canvas2d"
+      }
+    },
+    {
+      "id": "s05-risk",
+      "title": "第三問：哪些貨有風險",
+      "visualSeconds": 11,
+      "leadSeconds": 0.3,
+      "tailSeconds": 0.45,
+      "narration": "第三問，哪些貨有風險？超過一百八十天的八點二萬，已退市的一點五萬，快到期的只有幾百元。最資深的住戶，是明川空氣清淨機零六型。一箱貨再多種罪名，也只算一次。",
+      "visual": {
+        "subject": {
+          "id": "acang-office",
+          "type": "character-cast"
+        },
+        "style": "flat",
+        "motion": {
+          "action": "acting",
+          "effect": "mg-pop"
+        },
+        "renderer": "canvas2d"
+      }
+    },
+    {
+      "id": "s06-replenish",
+      "title": "第四問：要不要補貨",
+      "visualSeconds": 9,
+      "leadSeconds": 0.3,
+      "tailSeconds": 0.45,
+      "narration": "第四問，要不要補貨？缺貨率，就是答應準時出貨卻沒做到的比例，百分之七點五，批發客戶最沒耐心。報表算出：建議補貨八百一十四件。",
+      "visual": {
+        "subject": {
+          "id": "acang-office",
+          "type": "character-cast"
+        },
+        "style": "flat",
+        "motion": {
+          "action": "acting",
+          "effect": "mg-pop"
+        },
+        "renderer": "canvas2d"
+      }
+    },
+    {
+      "id": "s07-transfer",
+      "title": "第五問：別的倉有餘貨嗎",
+      "visualSeconds": 9,
+      "leadSeconds": 0.3,
+      "tailSeconds": 0.45,
+      "narration": "第五問，別的倉有餘貨嗎？買之前，先問鄰居有沒有多的醬油。華北倉調出最多，庫存卻最少——是人緣太好，還是被借光了？先問清楚。",
+      "visual": {
+        "subject": {
+          "id": "acang-office",
+          "type": "character-cast"
+        },
+        "style": "flat",
+        "motion": {
+          "action": "acting",
+          "effect": "mg-pop"
+        },
+        "renderer": "canvas2d"
+      }
+    },
+    {
+      "id": "s08-count",
+      "title": "第六問：帳實對得上嗎",
+      "visualSeconds": 11,
+      "leadSeconds": 0.3,
+      "tailSeconds": 0.45,
+      "narration": "第六問，帳和實物對得上嗎？準確率九成三多，但只代表有盤到的記錄，像點名只點有來的人。多了兩萬九、少了兩萬八，幾乎抵銷，可是絕對差異仍有五點七萬。",
+      "visual": {
+        "subject": {
+          "id": "acang-office",
+          "type": "character-cast"
+        },
+        "style": "flat",
+        "motion": {
+          "action": "acting",
+          "effect": "mg-pop"
+        },
+        "renderer": "canvas2d"
+      }
+    },
+    {
+      "id": "s09-measure",
+      "title": "這些數字怎麼算的",
+      "visualSeconds": 7,
+      "leadSeconds": 0.3,
+      "tailSeconds": 0.45,
+      "narration": "老闆問：「這些數字怎麼算的？」阿倉遞上計算機：度量值，就是存好公式的按鈕，一共九十三個。",
+      "visual": {
+        "subject": {
+          "id": "acang-office",
+          "type": "character-cast"
+        },
+        "style": "flat",
+        "motion": {
+          "action": "acting",
+          "effect": "mg-pop"
+        },
+        "renderer": "canvas2d"
+      }
+    },
+    {
+      "id": "s10-decide",
+      "title": "所以，該做什麼？",
+      "visualSeconds": 9,
+      "leadSeconds": 0.3,
+      "tailSeconds": 2.4,
+      "narration": "老闆問最後一題：「所以我該做什麼？」阿倉笑了：總覽找重點，專題頁查細節，從查數字走向做判斷。老闆拿起電話，第一通打給華北倉。",
+      "visual": {
+        "subject": {
+          "id": "acang-office",
+          "type": "character-cast"
+        },
+        "style": "flat",
+        "motion": {
+          "action": "acting",
+          "effect": "mg-pop"
+        },
+        "renderer": "canvas2d"
+      }
+    }
+  ],
+  "audioTracks": [
+    {
+      "file": "audio/music.wav",
+      "startSeconds": 0,
+      "gain": 1.0
+    },
+    {
+      "file": "audio/sfx.wav",
+      "startSeconds": 0,
+      "gain": 1.0
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "mode": "render",
+  "timelineSha256": "280a3835872edb8dbe8755cbbe72206cb11d24b56a9ce088ce5d994ddf50cde5",
+  "browser": "155.0.8059.80",
+  "totalFrames": 4741,
+  "durationSeconds": 158.03333333333333,
+  "determinism": [
+    {
+      "frame": 0,
+      "sha256": "f8ac66bcf19003e97f3c93bb505eaae1915fb589a9a31a5f95d33abb6a9eb6e2",
+      "repeatSha256": "f8ac66bcf19003e97f3c93bb505eaae1915fb589a9a31a5f95d33abb6a9eb6e2",
+      "match": true
+    },
+    {
+      "frame": 901,
+      "sha256": "a1394f744f6f64cd9576004361c03f7264ead93191cf3c71528badf5f64c62f9",
+      "repeatSha256": "a1394f744f6f64cd9576004361c03f7264ead93191cf3c71528badf5f64c62f9",
+      "match": true
+    },
+    {
+      "frame": 2228,
+      "sha256": "1d32deb7dff9c649c936eed314e085167fb0217ae479c394092ad18f2ca6f366",
+      "repeatSha256": "1d32deb7dff9c649c936eed314e085167fb0217ae479c394092ad18f2ca6f366",
+      "match": true
+    },
+    {
+      "frame": 3745,
+      "sha256": "a1a461e6540291acfeb559d9d27b28c85a7b4cc60770aeaa149ec76046251d81",
+      "repeatSha256": "a1a461e6540291acfeb559d9d27b28c85a7b4cc60770aeaa149ec76046251d81",
+      "match": true
+    },
+    {
+      "frame": 4740,
+      "sha256": "e3042637f1b714992b502434ed92fafddfb4c201aeac71847d0605a4db37d9ad",
+      "repeatSha256": "e3042637f1b714992b502434ed92fafddfb4c201aeac71847d0605a4db37d9ad",
+      "match": true
+    }
+  ],
+  "browserErrors": [],
+  "sourceSha256": {
+    "index.html": "d2e8fbe17449cac0faca8c8e4e1a1460465e0dbbc8c6532d802cdb0764ffa273",
+    "lib.js": "a2487cd358dfa21c9dc6bdab5522c52f5b9e2073ad335bf232f08329200677b6",
+    "scenes.js": "4c0c1ffd65a776a6a7b403ea06d78217f53a567db876bb18e187a3d36961baf4",
+    "scenes1.js": "4183d2af396d4cef4d4469e81b20f34f511ec05707c02fdb1ac606936f567d8e",
+    "scenes2.js": "62684e8de5a59bbb1516b40e08165a5e4a6ec52a9579ed78bebc64fb70120a8d",
+    "scenes3.js": "bdf2ebaa5f762ee3cf08cfffb5c555c4e0b600e791435bfafd9cbf3a339e8fb8",
+    "runtime.js": "eeee33bc021fe4be974284ba866358d6d98f0f6273906ddb45690957096a5d37",
+    "timeline.json": "280a3835872edb8dbe8755cbbe72206cb11d24b56a9ce088ce5d994ddf50cde5",
+    "cues.json": "84b828bfeb9af4383acf886333e0bb66d2629d1d004fa80c18db6cdb31f9d14a"
+  },
+  "renderWallSeconds": 559.673,
+  "videoSha256": "ba86baf135230d9c334fa79fe5606ebcc734911bf6d8351768395151fe869c76"
+}

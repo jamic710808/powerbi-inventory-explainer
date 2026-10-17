@@ -1,0 +1,668 @@
+{
+  "schema": "code-animation/v1",
+  "locked": true,
+  "filmSha256": "9237c94c085364427037ae3ec90885219eceb9d963b984e08992491a7cecf887",
+  "assetSha256": {
+    "audio/s01-monday.wav": "c91f13dd207010e3f5daaaced88fb787e49777db5ecb3385633d3ac148c52ab4",
+    "audio/s02-calendar.wav": "16048ff34b88b397059096d8d58ca13bb38fdadf2494009a0b343a78271988bf",
+    "audio/s03-money.wav": "5af9c853a0f8492d51bc48a63eebd3e89e8a3d8e6119c4f4561d30bf09095d81",
+    "audio/s04-turnover.wav": "f3dadc927d3e22d9e78dc130f20ee771290c6acc6cba2d5e1b59a7bd3573e81e",
+    "audio/s05-risk.wav": "3f6ccbe4694d2dc97f6aa555348435e882b47574d15b31ce19c84e2e736f9169",
+    "audio/s06-replenish.wav": "677d60a317552a52628139e2a80ad1943dc1512fa0ea88b2ce4df7458a8540e6",
+    "audio/s07-transfer.wav": "43ca999c17d9e68ddd2e677dc21f02e57b526a8fe71d196adb3775318284715f",
+    "audio/s08-count.wav": "0d7bc812c8961f33d6c1c79f7aa6041587a3b5d63a59e4ae6665ced1c5c20b83",
+    "audio/s09-measure.wav": "5584f6b3062c8dc073647a2353430d04b14cfa33874c5d63361ee68b7a0c6d47",
+    "audio/s10-decide.wav": "b1613b6ff2490d0fcb9dcb7ea4b09fcb04fc75a287e5e63b74c999e2eb0f150a",
+    "audio/music.wav": "53d0b70df8dd5b5b5ca84a07568ee919bd3899557f18baeaeca0c2e8a224277b",
+    "audio/sfx.wav": "b1048aa42f6efcfabd9585f4540112dd247cc893d89eb69152d834d3316c15cf"
+  },
+  "title": "阿倉的週一：一份庫存報表，把老闆從驚慌帶到下決定",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "totalFrames": 4741,
+  "durationSeconds": 158.03333333333333,
+  "seed": 42,
+  "scenes": [
+    {
+      "id": "s01-monday",
+      "title": "週一早上八點",
+      "visualSeconds": 9,
+      "leadSeconds": 0.3,
+      "tailSeconds": 0.45,
+      "narration": "週一早上八點，老闆衝進倉庫，咖啡灑了一半：「阿倉！庫存到底好不好？」阿倉打開一份報表——八頁，六個問題。",
+      "visual": {
+        "subject": {
+          "id": "acang-office",
+          "type": "character-cast"
+        },
+        "style": "flat",
+        "motion": {
+          "action": "acting",
+          "effect": "mg-pop"
+        },
+        "renderer": "canvas2d"
+      },
+      "startFrame": 0,
+      "durationFrames": 366,
+      "endFrame": 366,
+      "voiceStartFrame": 9,
+      "voiceFrames": 343,
+      "voice": "audio/s01-monday.wav"
+    },
+    {
+      "id": "s02-calendar",
+      "title": "封面與驚魂記：少了二十萬？",
+      "visualSeconds": 16,
+      "leadSeconds": 0.3,
+      "tailSeconds": 0.45,
+      "narration": "封面四個數字，像體檢單：在庫七十八點五萬，週轉二十二點五天，缺貨率百分之八，準確率九成三多。老闆剛放心，翻頁就驚呼：五十八點九萬？少了二十萬！阿倉指指日期：這頁只算到五月一日，封面算到八月底。沒掉錢，只是日曆翻了四個月。",
+      "visual": {
+        "subject": {
+          "id": "acang-office",
+          "type": "character-cast"
+        },
+        "style": "flat",
+        "motion": {
+          "action": "acting",
+          "effect": "mg-pop"
+        },
+        "renderer": "canvas2d"
+      },
+      "startFrame": 366,
+      "durationFrames": 838,
+      "endFrame": 1204,
+      "voiceStartFrame": 375,
+      "voiceFrames": 815,
+      "voice": "audio/s02-calendar.wav"
+    },
+    {
+      "id": "s03-money",
+      "title": "第一問：錢壓在哪",
+      "visualSeconds": 8,
+      "leadSeconds": 0.3,
+      "tailSeconds": 0.45,
+      "narration": "第一問，錢壓在哪？五十八點九萬裡，可用四十八點三萬，殘次十點六萬。華東倉最會囤，像家裡什麼都捨不得丟的那位。",
+      "visual": {
+        "subject": {
+          "id": "acang-office",
+          "type": "character-cast"
+        },
+        "style": "flat",
+        "motion": {
+          "action": "acting",
+          "effect": "mg-pop"
+        },
+        "renderer": "canvas2d"
+      },
+      "startFrame": 1204,
+      "durationFrames": 389,
+      "endFrame": 1593,
+      "voiceStartFrame": 1213,
+      "voiceFrames": 366,
+      "voice": "audio/s03-money.wav"
+    },
+    {
+      "id": "s04-turnover",
+      "title": "第二問：轉得快不快",
+      "visualSeconds": 8,
+      "leadSeconds": 0.3,
+      "tailSeconds": 0.45,
+      "narration": "第二問，轉得快不快？平均二十二點八天賣完一輪。右上角的「躺平區」，又慢又佔錢的貨會住在那裡——今天，是空的。",
+      "visual": {
+        "subject": {
+          "id": "acang-office",
+          "type": "character-cast"
+        },
+        "style": "flat",
+        "motion": {
+          "action": "acting",
+          "effect": "mg-pop"
+        },
+        "renderer": "canvas2d"
+      },
+      "startFrame": 1593,
+      "durationFrames": 397,
+      "endFrame": 1990,
+      "voiceStartFrame": 1602,
+      "voiceFrames": 374,
+      "voice": "audio/s04-turnover.wav"
+    },
+    {
+      "id": "s05-risk",
+      "title": "第三問：哪些貨有風險",
+      "visualSeconds": 11,
+      "leadSeconds": 0.3,
+      "tailSeconds": 0.45,
+      "narration": "第三問，哪些貨有風險？超過一百八十天的八點二萬，已退市的一點五萬，快到期的只有幾百元。最資深的住戶，是明川空氣清淨機零六型。一箱貨再多種罪名，也只算一次。",
+      "visual": {
+        "subject": {
+          "id": "acang-office",
+          "type": "character-cast"
+        },
+        "style": "flat",
+        "motion": {
+          "action": "acting",
+          "effect": "mg-pop"
+        },
+        "renderer": "canvas2d"
+      },
+      "startFrame": 1990,
+      "durationFrames": 541,
+      "endFrame": 2531,
+      "voiceStartFrame": 1999,
+      "voiceFrames": 518,
+      "voice": "audio/s05-risk.wav"
+    },
+    {
+      "id": "s06-replenish",
+      "title": "第四問：要不要補貨",
+      "visualSeconds": 9,
+      "leadSeconds": 0.3,
+      "tailSeconds": 0.45,
+      "narration": "第四問，要不要補貨？缺貨率，就是答應準時出貨卻沒做到的比例，百分之七點五，批發客戶最沒耐心。報表算出：建議補貨八百一十四件。",
+      "visual": {
+        "subject": {
+          "id": "acang-office",
+          "type": "character-cast"
+        },
+        "style": "flat",
+        "motion": {
+          "action": "acting",
+          "effect": "mg-pop"
+        },
+        "renderer": "canvas2d"
+      },
+      "startFrame": 2531,
+      "durationFrames": 442,
+      "endFrame": 2973,
+      "voiceStartFrame": 2540,
+      "voiceFrames": 419,
+      "voice": "audio/s06-replenish.wav"
+    },
+    {
+      "id": "s07-transfer",
+      "title": "第五問：別的倉有餘貨嗎",
+      "visualSeconds": 9,
+      "leadSeconds": 0.3,
+      "tailSeconds": 0.45,
+      "narration": "第五問，別的倉有餘貨嗎？買之前，先問鄰居有沒有多的醬油。華北倉調出最多，庫存卻最少——是人緣太好，還是被借光了？先問清楚。",
+      "visual": {
+        "subject": {
+          "id": "acang-office",
+          "type": "character-cast"
+        },
+        "style": "flat",
+        "motion": {
+          "action": "acting",
+          "effect": "mg-pop"
+        },
+        "renderer": "canvas2d"
+      },
+      "startFrame": 2973,
+      "durationFrames": 452,
+      "endFrame": 3425,
+      "voiceStartFrame": 2982,
+      "voiceFrames": 429,
+      "voice": "audio/s07-transfer.wav"
+    },
+    {
+      "id": "s08-count",
+      "title": "第六問：帳實對得上嗎",
+      "visualSeconds": 11,
+      "leadSeconds": 0.3,
+      "tailSeconds": 0.45,
+      "narration": "第六問，帳和實物對得上嗎？準確率九成三多，但只代表有盤到的記錄，像點名只點有來的人。多了兩萬九、少了兩萬八，幾乎抵銷，可是絕對差異仍有五點七萬。",
+      "visual": {
+        "subject": {
+          "id": "acang-office",
+          "type": "character-cast"
+        },
+        "style": "flat",
+        "motion": {
+          "action": "acting",
+          "effect": "mg-pop"
+        },
+        "renderer": "canvas2d"
+      },
+      "startFrame": 3425,
+      "durationFrames": 456,
+      "endFrame": 3881,
+      "voiceStartFrame": 3434,
+      "voiceFrames": 433,
+      "voice": "audio/s08-count.wav"
+    },
+    {
+      "id": "s09-measure",
+      "title": "這些數字怎麼算的",
+      "visualSeconds": 7,
+      "leadSeconds": 0.3,
+      "tailSeconds": 0.45,
+      "narration": "老闆問：「這些數字怎麼算的？」阿倉遞上計算機：度量值，就是存好公式的按鈕，一共九十三個。",
+      "visual": {
+        "subject": {
+          "id": "acang-office",
+          "type": "character-cast"
+        },
+        "style": "flat",
+        "motion": {
+          "action": "acting",
+          "effect": "mg-pop"
+        },
+        "renderer": "canvas2d"
+      },
+      "startFrame": 3881,
+      "durationFrames": 295,
+      "endFrame": 4176,
+      "voiceStartFrame": 3890,
+      "voiceFrames": 272,
+      "voice": "audio/s09-measure.wav"
+    },
+    {
+      "id": "s10-decide",
+      "title": "所以，該做什麼？",
+      "visualSeconds": 9,
+      "leadSeconds": 0.3,
+      "tailSeconds": 2.4,
+      "narration": "老闆問最後一題：「所以我該做什麼？」阿倉笑了：總覽找重點，專題頁查細節，從查數字走向做判斷。老闆拿起電話，第一通打給華北倉。",
+      "visual": {
+        "subject": {
+          "id": "acang-office",
+          "type": "character-cast"
+        },
+        "style": "flat",
+        "motion": {
+          "action": "acting",
+          "effect": "mg-pop"
+        },
+        "renderer": "canvas2d"
+      },
+      "startFrame": 4176,
+      "durationFrames": 565,
+      "endFrame": 4741,
+      "voiceStartFrame": 4185,
+      "voiceFrames": 484,
+      "voice": "audio/s10-decide.wav"
+    }
+  ],
+  "captions": [
+    {
+      "text": "週一早上八點，",
+      "startFrame": 9,
+      "endFrame": 55
+    },
+    {
+      "text": "老闆衝進倉庫，",
+      "startFrame": 55,
+      "endFrame": 101
+    },
+    {
+      "text": "咖啡灑了一半：「阿倉！",
+      "startFrame": 101,
+      "endFrame": 174
+    },
+    {
+      "text": "庫存到底好不好？",
+      "startFrame": 174,
+      "endFrame": 227
+    },
+    {
+      "text": "」阿倉打開一份報表——八頁，",
+      "startFrame": 227,
+      "endFrame": 319
+    },
+    {
+      "text": "六個問題。",
+      "startFrame": 319,
+      "endFrame": 352
+    },
+    {
+      "text": "封面四個數字，",
+      "startFrame": 375,
+      "endFrame": 427
+    },
+    {
+      "text": "像體檢單：在庫七十八點五萬，",
+      "startFrame": 427,
+      "endFrame": 531
+    },
+    {
+      "text": "週轉二十二點五天，",
+      "startFrame": 531,
+      "endFrame": 597
+    },
+    {
+      "text": "缺貨率百分之八，",
+      "startFrame": 597,
+      "endFrame": 657
+    },
+    {
+      "text": "準確率九成三多。",
+      "startFrame": 657,
+      "endFrame": 716
+    },
+    {
+      "text": "老闆剛放心，",
+      "startFrame": 716,
+      "endFrame": 760
+    },
+    {
+      "text": "翻頁就驚呼：五十八點九萬？",
+      "startFrame": 760,
+      "endFrame": 857
+    },
+    {
+      "text": "少了二十萬！",
+      "startFrame": 857,
+      "endFrame": 901
+    },
+    {
+      "text": "阿倉指指日期：這頁只算到五月一日，",
+      "startFrame": 901,
+      "endFrame": 1027
+    },
+    {
+      "text": "封面算到八月底。",
+      "startFrame": 1027,
+      "endFrame": 1086
+    },
+    {
+      "text": "沒掉錢，",
+      "startFrame": 1086,
+      "endFrame": 1116
+    },
+    {
+      "text": "只是日曆翻了四個月。",
+      "startFrame": 1116,
+      "endFrame": 1190
+    },
+    {
+      "text": "第一問，",
+      "startFrame": 1213,
+      "endFrame": 1240
+    },
+    {
+      "text": "錢壓在哪？",
+      "startFrame": 1240,
+      "endFrame": 1274
+    },
+    {
+      "text": "五十八點九萬裡，",
+      "startFrame": 1274,
+      "endFrame": 1328
+    },
+    {
+      "text": "可用四十八點三萬，",
+      "startFrame": 1328,
+      "endFrame": 1389
+    },
+    {
+      "text": "殘次十點六萬。",
+      "startFrame": 1389,
+      "endFrame": 1437
+    },
+    {
+      "text": "華東倉最會囤，",
+      "startFrame": 1437,
+      "endFrame": 1484
+    },
+    {
+      "text": "像家裡什麼都捨不得丟的那位。",
+      "startFrame": 1484,
+      "endFrame": 1579
+    },
+    {
+      "text": "第二問，",
+      "startFrame": 1602,
+      "endFrame": 1630
+    },
+    {
+      "text": "轉得快不快？",
+      "startFrame": 1630,
+      "endFrame": 1671
+    },
+    {
+      "text": "平均二十二點八天賣完一輪。",
+      "startFrame": 1671,
+      "endFrame": 1761
+    },
+    {
+      "text": "右上角的「躺平區」，",
+      "startFrame": 1761,
+      "endFrame": 1831
+    },
+    {
+      "text": "又慢又佔錢的貨會住在那裡——今天，",
+      "startFrame": 1831,
+      "endFrame": 1948
+    },
+    {
+      "text": "是空的。",
+      "startFrame": 1948,
+      "endFrame": 1976
+    },
+    {
+      "text": "第三問，",
+      "startFrame": 1999,
+      "endFrame": 2026
+    },
+    {
+      "text": "哪些貨有風險？",
+      "startFrame": 2026,
+      "endFrame": 2073
+    },
+    {
+      "text": "超過一百八十天的八點二萬，",
+      "startFrame": 2073,
+      "endFrame": 2160
+    },
+    {
+      "text": "已退市的一點五萬，",
+      "startFrame": 2160,
+      "endFrame": 2221
+    },
+    {
+      "text": "快到期的只有幾百元。",
+      "startFrame": 2221,
+      "endFrame": 2288
+    },
+    {
+      "text": "最資深的住戶，",
+      "startFrame": 2288,
+      "endFrame": 2335
+    },
+    {
+      "text": "是明川空氣清淨機零六型。",
+      "startFrame": 2335,
+      "endFrame": 2416
+    },
+    {
+      "text": "一箱貨再多種罪名，",
+      "startFrame": 2416,
+      "endFrame": 2477
+    },
+    {
+      "text": "也只算一次。",
+      "startFrame": 2477,
+      "endFrame": 2517
+    },
+    {
+      "text": "第四問，",
+      "startFrame": 2540,
+      "endFrame": 2567
+    },
+    {
+      "text": "要不要補貨？",
+      "startFrame": 2567,
+      "endFrame": 2608
+    },
+    {
+      "text": "缺貨率，",
+      "startFrame": 2608,
+      "endFrame": 2635
+    },
+    {
+      "text": "就是答應準時出貨卻沒做到的比例，",
+      "startFrame": 2635,
+      "endFrame": 2743
+    },
+    {
+      "text": "百分之七點五，",
+      "startFrame": 2743,
+      "endFrame": 2790
+    },
+    {
+      "text": "批發客戶最沒耐心。",
+      "startFrame": 2790,
+      "endFrame": 2851
+    },
+    {
+      "text": "報表算出：建議補貨八百一十四件。",
+      "startFrame": 2851,
+      "endFrame": 2959
+    },
+    {
+      "text": "第五問，",
+      "startFrame": 2982,
+      "endFrame": 3010
+    },
+    {
+      "text": "別的倉有餘貨嗎？",
+      "startFrame": 3010,
+      "endFrame": 3066
+    },
+    {
+      "text": "買之前，",
+      "startFrame": 3066,
+      "endFrame": 3095
+    },
+    {
+      "text": "先問鄰居有沒有多的醬油。",
+      "startFrame": 3095,
+      "endFrame": 3179
+    },
+    {
+      "text": "華北倉調出最多，",
+      "startFrame": 3179,
+      "endFrame": 3235
+    },
+    {
+      "text": "庫存卻最少——是人緣太好，",
+      "startFrame": 3235,
+      "endFrame": 3327
+    },
+    {
+      "text": "還是被借光了？",
+      "startFrame": 3327,
+      "endFrame": 3376
+    },
+    {
+      "text": "先問清楚。",
+      "startFrame": 3376,
+      "endFrame": 3411
+    },
+    {
+      "text": "第六問，",
+      "startFrame": 3434,
+      "endFrame": 3458
+    },
+    {
+      "text": "帳和實物對得上嗎？",
+      "startFrame": 3458,
+      "endFrame": 3512
+    },
+    {
+      "text": "準確率九成三多，",
+      "startFrame": 3512,
+      "endFrame": 3560
+    },
+    {
+      "text": "但只代表有盤到的記錄，",
+      "startFrame": 3560,
+      "endFrame": 3626
+    },
+    {
+      "text": "像點名只點有來的人。",
+      "startFrame": 3626,
+      "endFrame": 3687
+    },
+    {
+      "text": "多了兩萬九、少了兩萬八，",
+      "startFrame": 3687,
+      "endFrame": 3759
+    },
+    {
+      "text": "幾乎抵銷，",
+      "startFrame": 3759,
+      "endFrame": 3789
+    },
+    {
+      "text": "可是絕對差異仍有五點七萬。",
+      "startFrame": 3789,
+      "endFrame": 3867
+    },
+    {
+      "text": "老闆問：「這些數字怎麼算的？",
+      "startFrame": 3890,
+      "endFrame": 3977
+    },
+    {
+      "text": "」阿倉遞上計算機：度量值，",
+      "startFrame": 3977,
+      "endFrame": 4057
+    },
+    {
+      "text": "就是存好公式的按鈕，",
+      "startFrame": 4057,
+      "endFrame": 4119
+    },
+    {
+      "text": "一共九十三個。",
+      "startFrame": 4119,
+      "endFrame": 4162
+    },
+    {
+      "text": "老闆問最後一題：「所以我該做什麼？",
+      "startFrame": 4185,
+      "endFrame": 4318
+    },
+    {
+      "text": "」阿倉笑了：總覽找重點，",
+      "startFrame": 4318,
+      "endFrame": 4411
+    },
+    {
+      "text": "專題頁查細節，",
+      "startFrame": 4411,
+      "endFrame": 4466
+    },
+    {
+      "text": "從查數字走向做判斷。",
+      "startFrame": 4466,
+      "endFrame": 4544
+    },
+    {
+      "text": "老闆拿起電話，",
+      "startFrame": 4544,
+      "endFrame": 4599
+    },
+    {
+      "text": "第一通打給華北倉。",
+      "startFrame": 4599,
+      "endFrame": 4669
+    }
+  ],
+  "captionTiming": "character-weighted-approximation",
+  "audioTracks": [
+    {
+      "file": "audio/music.wav",
+      "startSeconds": 0,
+      "gain": 1.0
+    },
+    {
+      "file": "audio/sfx.wav",
+      "startSeconds": 0,
+      "gain": 1.0
+    }
+  ]
+}

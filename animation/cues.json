@@ -1,0 +1,492 @@
+{
+ "s01-monday": {
+  "voiceSeconds": 11.42,
+  "method": "silence-matched(-36dB,0.14)",
+  "gapsFound": 7,
+  "clauses": 7,
+  "segments": [
+   {
+    "text": "週一早上八點，",
+    "start": 0.0,
+    "end": 1.423
+   },
+   {
+    "text": "老闆衝進倉庫，",
+    "start": 1.423,
+    "end": 3.043
+   },
+   {
+    "text": "咖啡灑了一半：",
+    "start": 3.043,
+    "end": 4.474
+   },
+   {
+    "text": "「阿倉！",
+    "start": 4.474,
+    "end": 5.35
+   },
+   {
+    "text": "庫存到底好不好？",
+    "start": 5.35,
+    "end": 7.118
+   },
+   {
+    "text": "」阿倉打開一份報表——八頁，",
+    "start": 7.118,
+    "end": 10.219
+   },
+   {
+    "text": "六個問題。",
+    "start": 10.219,
+    "end": 11.42
+   }
+  ]
+ },
+ "s02-calendar": {
+  "voiceSeconds": 27.156,
+  "method": "silence-matched(-36dB,0.14)",
+  "gapsFound": 17,
+  "clauses": 15,
+  "segments": [
+   {
+    "text": "封面四個數字，",
+    "start": 0.0,
+    "end": 1.408
+   },
+   {
+    "text": "像體檢單：",
+    "start": 1.408,
+    "end": 2.872
+   },
+   {
+    "text": "在庫七十八點五萬，",
+    "start": 2.872,
+    "end": 4.835
+   },
+   {
+    "text": "週轉二十二點五天，",
+    "start": 4.835,
+    "end": 7.009
+   },
+   {
+    "text": "缺貨率百分之八，",
+    "start": 7.009,
+    "end": 8.968
+   },
+   {
+    "text": "準確率九成三多。",
+    "start": 8.968,
+    "end": 11.162
+   },
+   {
+    "text": "老闆剛放心，",
+    "start": 11.162,
+    "end": 12.791
+   },
+   {
+    "text": "翻頁就驚呼：",
+    "start": 12.791,
+    "end": 14.107
+   },
+   {
+    "text": "五十八點九萬？",
+    "start": 14.107,
+    "end": 15.779
+   },
+   {
+    "text": "少了二十萬！",
+    "start": 15.779,
+    "end": 17.587
+   },
+   {
+    "text": "阿倉指指日期：",
+    "start": 17.587,
+    "end": 19.447
+   },
+   {
+    "text": "這頁只算到五月一日，",
+    "start": 19.447,
+    "end": 21.924
+   },
+   {
+    "text": "封面算到八月底。",
+    "start": 21.924,
+    "end": 23.933
+   },
+   {
+    "text": "沒掉錢，",
+    "start": 23.933,
+    "end": 25.1
+   },
+   {
+    "text": "只是日曆翻了四個月。",
+    "start": 25.1,
+    "end": 27.156
+   }
+  ]
+ },
+ "s03-money": {
+  "voiceSeconds": 12.184,
+  "method": "silence-matched(-32dB,0.1)",
+  "gapsFound": 8,
+  "clauses": 7,
+  "segments": [
+   {
+    "text": "第一問，",
+    "start": 0.0,
+    "end": 0.657
+   },
+   {
+    "text": "錢壓在哪？",
+    "start": 0.657,
+    "end": 1.933
+   },
+   {
+    "text": "五十八點九萬裡，",
+    "start": 1.933,
+    "end": 3.642
+   },
+   {
+    "text": "可用四十八點三萬，",
+    "start": 3.642,
+    "end": 6.358
+   },
+   {
+    "text": "殘次十點六萬。",
+    "start": 6.358,
+    "end": 7.553
+   },
+   {
+    "text": "華東倉最會囤，",
+    "start": 7.553,
+    "end": 9.494
+   },
+   {
+    "text": "像家裡什麼都捨不得丟的那位。",
+    "start": 9.494,
+    "end": 12.184
+   }
+  ]
+ },
+ "s04-turnover": {
+  "voiceSeconds": 12.437,
+  "method": "silence-matched(-36dB,0.14)",
+  "gapsFound": 8,
+  "clauses": 6,
+  "segments": [
+   {
+    "text": "第二問，",
+    "start": 0.0,
+    "end": 0.842
+   },
+   {
+    "text": "轉得快不快？",
+    "start": 0.842,
+    "end": 2.099
+   },
+   {
+    "text": "平均二十二點八天賣完一輪。",
+    "start": 2.099,
+    "end": 5.35
+   },
+   {
+    "text": "右上角的「躺平區」，",
+    "start": 5.35,
+    "end": 7.55
+   },
+   {
+    "text": "又慢又佔錢的貨會住在那裡——今天，",
+    "start": 7.55,
+    "end": 10.843
+   },
+   {
+    "text": "是空的。",
+    "start": 10.843,
+    "end": 12.437
+   }
+  ]
+ },
+ "s05-risk": {
+  "voiceSeconds": 17.242,
+  "method": "silence-matched(-34dB,0.12)",
+  "gapsFound": 9,
+  "clauses": 9,
+  "segments": [
+   {
+    "text": "第三問，",
+    "start": 0.0,
+    "end": 0.83
+   },
+   {
+    "text": "哪些貨有風險？",
+    "start": 0.83,
+    "end": 2.448
+   },
+   {
+    "text": "超過一百八十天的八點二萬，",
+    "start": 2.448,
+    "end": 5.027
+   },
+   {
+    "text": "已退市的一點五萬，",
+    "start": 5.027,
+    "end": 7.015
+   },
+   {
+    "text": "快到期的只有幾百元。",
+    "start": 7.015,
+    "end": 9.388
+   },
+   {
+    "text": "最資深的住戶，",
+    "start": 9.388,
+    "end": 10.834
+   },
+   {
+    "text": "是明川空氣清淨機零六型。",
+    "start": 10.834,
+    "end": 13.888
+   },
+   {
+    "text": "一箱貨再多種罪名，",
+    "start": 13.888,
+    "end": 15.911
+   },
+   {
+    "text": "也只算一次。",
+    "start": 15.911,
+    "end": 17.242
+   }
+  ]
+ },
+ "s06-replenish": {
+  "voiceSeconds": 13.96,
+  "method": "silence-matched(-34dB,0.12)",
+  "gapsFound": 9,
+  "clauses": 8,
+  "segments": [
+   {
+    "text": "第四問，",
+    "start": 0.0,
+    "end": 0.749
+   },
+   {
+    "text": "要不要補貨？",
+    "start": 0.749,
+    "end": 2.125
+   },
+   {
+    "text": "缺貨率，",
+    "start": 2.125,
+    "end": 3.379
+   },
+   {
+    "text": "就是答應準時出貨卻沒做到的比例，",
+    "start": 3.379,
+    "end": 6.636
+   },
+   {
+    "text": "百分之七點五，",
+    "start": 6.636,
+    "end": 8.166
+   },
+   {
+    "text": "批發客戶最沒耐心。",
+    "start": 8.166,
+    "end": 10.264
+   },
+   {
+    "text": "報表算出：",
+    "start": 10.264,
+    "end": 11.524
+   },
+   {
+    "text": "建議補貨八百一十四件。",
+    "start": 11.524,
+    "end": 13.96
+   }
+  ]
+ },
+ "s07-transfer": {
+  "voiceSeconds": 14.294,
+  "method": "silence-matched(-36dB,0.14)",
+  "gapsFound": 8,
+  "clauses": 8,
+  "segments": [
+   {
+    "text": "第五問，",
+    "start": 0.0,
+    "end": 0.973
+   },
+   {
+    "text": "別的倉有餘貨嗎？",
+    "start": 0.973,
+    "end": 3.147
+   },
+   {
+    "text": "買之前，",
+    "start": 3.147,
+    "end": 4.382
+   },
+   {
+    "text": "先問鄰居有沒有多的醬油。",
+    "start": 4.382,
+    "end": 6.596
+   },
+   {
+    "text": "華北倉調出最多，",
+    "start": 6.596,
+    "end": 8.62
+   },
+   {
+    "text": "庫存卻最少——是人緣太好，",
+    "start": 8.62,
+    "end": 9.998
+   },
+   {
+    "text": "還是被借光了？",
+    "start": 9.998,
+    "end": 13.026
+   },
+   {
+    "text": "先問清楚。",
+    "start": 13.026,
+    "end": 14.294
+   }
+  ]
+ },
+ "s08-count": {
+  "voiceSeconds": 14.423,
+  "method": "silence-matched(-36dB,0.14)",
+  "gapsFound": 8,
+  "clauses": 8,
+  "segments": [
+   {
+    "text": "第六問，",
+    "start": 0.0,
+    "end": 0.697
+   },
+   {
+    "text": "帳和實物對得上嗎？",
+    "start": 0.697,
+    "end": 2.464
+   },
+   {
+    "text": "準確率九成三多，",
+    "start": 2.464,
+    "end": 4.366
+   },
+   {
+    "text": "但只代表有盤到的記錄，",
+    "start": 4.366,
+    "end": 6.027
+   },
+   {
+    "text": "像點名只點有來的人。",
+    "start": 6.027,
+    "end": 8.643
+   },
+   {
+    "text": "多了兩萬九、少了兩萬八，",
+    "start": 8.643,
+    "end": 9.836
+   },
+   {
+    "text": "幾乎抵銷，",
+    "start": 9.836,
+    "end": 11.862
+   },
+   {
+    "text": "可是絕對差異仍有五點七萬。",
+    "start": 11.862,
+    "end": 14.423
+   }
+  ]
+ },
+ "s09-measure": {
+  "voiceSeconds": 9.046,
+  "method": "silence-matched(-34dB,0.12)",
+  "gapsFound": 5,
+  "clauses": 6,
+  "segments": [
+   {
+    "text": "老闆問：",
+    "start": 0.0,
+    "end": 0.87
+   },
+   {
+    "text": "「這些數字怎麼算的？",
+    "start": 0.87,
+    "end": 2.69
+   },
+   {
+    "text": "」阿倉遞上計算機：",
+    "start": 2.69,
+    "end": 4.609
+   },
+   {
+    "text": "度量值，",
+    "start": 4.609,
+    "end": 5.6
+   },
+   {
+    "text": "就是存好公式的按鈕，",
+    "start": 5.6,
+    "end": 7.615
+   },
+   {
+    "text": "一共九十三個。",
+    "start": 7.615,
+    "end": 9.046
+   }
+  ]
+ },
+ "s10-decide": {
+  "voiceSeconds": 16.118,
+  "method": "silence-matched(-36dB,0.14)",
+  "gapsFound": 9,
+  "clauses": 8,
+  "segments": [
+   {
+    "text": "老闆問最後一題：",
+    "start": 0.0,
+    "end": 1.859
+   },
+   {
+    "text": "「所以我該做什麼？",
+    "start": 1.859,
+    "end": 3.842
+   },
+   {
+    "text": "」阿倉笑了：",
+    "start": 3.842,
+    "end": 5.329
+   },
+   {
+    "text": "總覽找重點，",
+    "start": 5.329,
+    "end": 7.091
+   },
+   {
+    "text": "專題頁查細節，",
+    "start": 7.091,
+    "end": 10.405
+   },
+   {
+    "text": "從查數字走向做判斷。",
+    "start": 10.405,
+    "end": 12.351
+   },
+   {
+    "text": "老闆拿起電話，",
+    "start": 12.351,
+    "end": 13.968
+   },
+   {
+    "text": "第一通打給華北倉。",
+    "start": 13.968,
+    "end": 16.118
+   }
+  ]
+ }
+}
